@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+set -e
+SCRIPT_SRC="$0"
+MACOS_DIR=$(dirname "$SCRIPT_SRC")
+CONTENTS_DIR=$(dirname "$MACOS_DIR")
+RESOURCES_DIR="$CONTENTS_DIR/Resources"
+UPPAAL_DIR="$RESOURCES_DIR/uppaal"
+if [ -n "$(command -v java)" ]; then
+    exec java -Xdock:icon="$UPPAAL_DIR/res/uppaal.icns" -jar "$UPPAAL_DIR/uppaal.jar"
+else
+    ARCH=$(uname -m)
+    if [ "$ARCH" == "x86_64" ]; then ARCH=x64 ; fi
+    /usr/bin/osascript <<-EOF
+    set the_title to "UPPAAL App Launcher"
+    set the_message to "Failed to find 'java' in PATH.\nPlease install JRE 11 or later for your macOS $ARCH.\nDownload pkg from https://adoptium.net ?"
+    set result to display dialog the_message buttons {"Cancel", "Open link"} with title the_title with icon caution
+    if the result is "Open link" then
+        open location "https://adoptium.net"
+    end if
+EOF
+fi
