@@ -38,10 +38,10 @@ public class SelectivityComparisonTest {
 
         Network network = NetworkBuilder.build(jsonFile);
 
-        Context.initializeUppaalEnginesPool("UPPAAL-5.1.0-beta5.app/Contents/Resources/uppaal",6);
+        Context.initializeUppaalEnginesPool("UPPAAL-5.1.0-beta5.app/Contents/Resources/uppaal",9);
         Context.getInstance().setNetwork(network);
-        List<Integer> actualMisconfiguredCBs = SelectivityChecker.extractMisconfiguredCBs(network);
-        Context.getInstance().shutdown();
+        List<Integer> actualMisconfiguredCBs = SelectivityChecker.extractMisconfiguredCBs(network,7);
+
         assertEquals(expectedMisconfiguredCBs, actualMisconfiguredCBs, "Incorrect Result");
     }
 

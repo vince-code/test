@@ -19,7 +19,7 @@ public class Main {
         Network network = NetworkBuilder.build(new File(jsonPath));
         //visualizeNetwork(network);
 
-        JavaAPI.startUppaalEngines(uppaalHome, 6);
+        JavaAPI.startUppaalEngines(uppaalHome, 2);
         JavaAPI.loadNetwork(jsonPath);
 
         JavaAPI.generateUppaalModel("/Users/enzo/Desktop/test","test");
@@ -32,8 +32,8 @@ public class Main {
         String filteredQuery = JavaAPI.generateFilteredQuery(new int[]{3, 5, 8});
 
         System.out.println("Filtered Query (without cbs 3,5,8): " + filteredQuery);
-        VerificationResult result = JavaAPI.verifyQuery(filteredQuery, false);
-        System.out.println("Filtered Query Verification:\n" + Arrays.toString(result.getMisconfiguredCBsArray()));
+        //VerificationResult result = JavaAPI.verifyQuery(filteredQuery, false);
+        //System.out.println("Filtered Query Verification:\n" + Arrays.toString(result.getMisconfiguredCBsArray()));
 
         System.out.println("Initial Net misconfigured cbs: " + Arrays.toString(JavaAPI.extractMisconfiguredCBs()));
         System.out.println("Updating t2 of CB_23 from 6 to 1");

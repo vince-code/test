@@ -2,51 +2,26 @@ package polimi.logic;
 
 import lombok.Getter;
 import lombok.Setter;
-import polimi.logic.verifier.UppaalClient;
+import polimi.logic.engine.UppaalEngineException;
+import polimi.logic.engine.UppaalEnginePool;
 import polimi.model.Network;
-
 import java.io.IOException;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 @Getter
 public class Context {
 
     private static Context instance;
+    private static final Object INIT_LOCK = new Object();
 
     @Setter
     private Network network;
+    private ExecutorService executor;
     private final String uppaalHome;
     private static boolean shutdownHookAdded = false;
 
-    private BlockingQueue<UppaalClient> clientPool;
-    private ExecutorService executor;
-
-    private Context(String uppaalHome) throws IOException {
+    private Context(String uppaalHome) {
         this.uppaalHome = uppaalHome;
-    }
-
-    public static void initializeUppaalEnginesPool(String uppaalHome, int maxParallelInstances) throws IOException {
-        if (maxParallelInstances < 1) {
-            throw new IllegalStateException("Invalid number of Uppaal engine instances (at least 1)");
-        }
-        if (instance == null) {
-            instance = new Context(uppaalHome);
-            instance.initClients(maxParallelInstances);
-
-            if (!shutdownHookAdded) {
-                Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                    System.out.println("Terminating Uppaal engines...");
-                    Context inst = instance;
-                    if (inst != null) {
-                        inst.shutdown();
-                    }
-                }));
-                shutdownHookAdded = true;
-            }
-        }
     }
 
     public static Context getInstance() {
@@ -56,50 +31,101 @@ public class Context {
         return instance;
     }
 
-    private void initClients(int maxParallel) throws IOException {
-        this.executor = Executors.newFixedThreadPool(maxParallel);
-        this.clientPool = new ArrayBlockingQueue<>(maxParallel);
-        for (int i = 0; i < maxParallel; i++) {
-            this.clientPool.add(new UppaalClient(this.uppaalHome));
+    public static void initializeUppaalEnginesPool(String uppaalHome, int maxParallelInstances) throws IOException {
+        if (maxParallelInstances < 1) {
+            throw new IllegalArgumentException("Invalid number of Uppaal engine instances (at least 1)");
+        }
+        try {
+            if (instance == null) {
+                synchronized (INIT_LOCK) {
+                    if (instance == null) {
+                        instance = new Context(uppaalHome);
+                        addShutdownHook();
+                    }
+                }
+            }
+            UppaalEnginePool.initialize(uppaalHome, maxParallelInstances);
+            instance.syncExecutorWithPoolSize(maxParallelInstances);
+        } catch (UppaalEngineException e) {
+            throw new IOException("Failed to initialize UPPAAL engines pool", e);
+        }
+    }
+
+    public ExecutorService getExecutor() {
+        if (executor == null || executor.isShutdown()) {
+            throw new IllegalStateException("Executor is not available");
+        }
+        return executor;
+    }
+
+    private void syncExecutorWithPoolSize(int requiredSize) {
+        if (executor == null || executor.isShutdown()) {
+            executor = Executors.newFixedThreadPool(requiredSize);
+        } else {
+            int currentSize = ((ThreadPoolExecutor) executor).getCorePoolSize();
+            if (currentSize != requiredSize) {
+                resizeExecutor(requiredSize);
+            }
+        }
+    }
+
+    private static void addShutdownHook() {
+        if (!shutdownHookAdded) {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                Context currentInstance = instance;
+                if (currentInstance != null) {
+                    currentInstance.shutdown();
+                }
+            }));
+            shutdownHookAdded = true;
         }
     }
 
     public void shutdown() {
-        if (this.clientPool != null) {
-            for (UppaalClient client : clientPool) {
+        try {
+            if (executor != null && !executor.isShutdown()) {
+                executor.shutdown();
                 try {
-                    client.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            this.clientPool.clear();
-        }
-
-        if (this.executor != null) {
-            this.executor.shutdownNow();
-            try {
-                if (!this.executor.awaitTermination(5, java.util.concurrent.TimeUnit.SECONDS)) {
-                    System.err.println("Executor did not terminate in time");
+                    if (!executor.awaitTermination(5, TimeUnit.SECONDS)) {
+                        executor.shutdownNow();
+                    }
+                } catch (InterruptedException e) {
                     executor.shutdownNow();
+                    Thread.currentThread().interrupt();
                 }
-            } catch (InterruptedException e) {
-                executor.shutdownNow();
-                Thread.currentThread().interrupt();
             }
-        }
 
-        this.executor = null;
-        this.clientPool = null;
+            UppaalEnginePool.getInstance().shutdown();
+
+        } catch (Exception e) {
+            System.err.println("Error during shutdown: " + e.getMessage());
+        }
 
         resetInstance();
-        System.out.println("\nJavaAPI Context Shutdown completed");
+        System.out.println("Shutdown completed");
     }
 
-    public void resetInstance() {
-        if (instance != null) {
+    private void resetInstance() {
+        synchronized (INIT_LOCK) {
             instance = null;
         }
     }
 
+    private void resizeExecutor(int newSize) {
+
+        ExecutorService oldExecutor = executor;
+        executor = Executors.newFixedThreadPool(newSize);
+
+        oldExecutor.shutdown();
+        CompletableFuture.runAsync(() -> {
+            try {
+                if (!oldExecutor.awaitTermination(5, TimeUnit.SECONDS)) {
+                    oldExecutor.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                oldExecutor.shutdownNow();
+                Thread.currentThread().interrupt();
+            }
+        });
+    }
 }

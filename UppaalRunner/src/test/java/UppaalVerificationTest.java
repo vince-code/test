@@ -21,7 +21,7 @@ public class UppaalVerificationTest {
         System.out.println(jsonFile.getName());
         Network network = NetworkBuilder.build(jsonFile);
 
-        UppaalClient uppaal = new UppaalClient(uppaalHome);
+        UppaalClient uppaal = new UppaalClient();
         System.out.println("\n=== Single Verification ===\n");
         long start = System.nanoTime();
         Document singleModel = new UppaalModelGenerator(network).generateDocument(true);

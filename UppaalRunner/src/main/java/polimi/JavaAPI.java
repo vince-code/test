@@ -73,13 +73,8 @@ public interface JavaAPI {
         Network network = Context.getInstance().getNetwork();
         Document document = new UppaalModelGenerator(network).generateDocument(true);
 
-        BlockingQueue<UppaalClient> clientPool = Context.getInstance().getClientPool();
-        UppaalClient client = clientPool.take();
-        try {
-            return client.verify(document, document.getQueryList().get(0), withTrace);
-        } finally{
-            clientPool.put(client);
-        }
+        UppaalClient client = new UppaalClient();
+        return client.verify(document, document.getQueryList().get(0), withTrace);
     }
 
 
@@ -87,13 +82,8 @@ public interface JavaAPI {
         Network network = Context.getInstance().getNetwork();
         Document document = new UppaalModelGenerator(network).generateDocument(true);
 
-        BlockingQueue<UppaalClient> clientPool = Context.getInstance().getClientPool();
-        UppaalClient client = clientPool.take();
-        try {
-            return client.verify(document, new Query(query), withTrace);
-        } finally{
-            clientPool.put(client);
-        }
+        UppaalClient client = new UppaalClient();
+        return client.verify(document, new Query(query), withTrace);
     }
 
     static int[] extractMisconfiguredCBs() throws ExecutionException, InterruptedException {

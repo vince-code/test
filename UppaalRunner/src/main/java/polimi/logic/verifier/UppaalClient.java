@@ -1,51 +1,67 @@
 package polimi.logic.verifier;
 
-import com.uppaal.engine.*;
-import com.uppaal.engine.connection.BundledConnection;
 import com.uppaal.model.core2.Document;
-import com.uppaal.model.core2.EngineSettings;
 import com.uppaal.model.core2.Query;
 import com.uppaal.model.core2.QueryResult;
-import com.uppaal.model.io2.Problem;
 import com.uppaal.model.system.*;
 import com.uppaal.model.system.symbolic.SymbolicState;
 import com.uppaal.model.system.symbolic.SymbolicTrace;
 import com.uppaal.model.system.symbolic.SymbolicTransition;
+import polimi.logic.engine.UppaalEngine;
+import polimi.logic.engine.UppaalEngineException;
+import polimi.logic.engine.UppaalEnginePool;
 import polimi.model.VerificationResult;
-
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
-public class UppaalClient implements AutoCloseable{
-
-    private Engine uppaalEngine;
-    private final String uppaalHome;
-
-    public UppaalClient(String uppaalHome) throws IOException {
-        this.uppaalHome = uppaalHome;
-        uppaalEngine = connectToEngine(uppaalHome);
-    }
+public class UppaalClient {
 
     public VerificationResult verify(Document document, Query query, boolean withTrace) throws Exception {
-        if (uppaalEngine == null) {
-            uppaalEngine = connectToEngine(uppaalHome);
+        if (document == null) {
+            throw new IllegalArgumentException("Document cannot be null");
+        }
+        if (query == null) {
+            throw new IllegalArgumentException("Query cannot be null");
         }
 
+        UppaalEngine engine = null;
+        try {
+            engine = UppaalEnginePool.getInstance().borrowEngine();
+
+            return performVerification(engine, document, query, withTrace);
+
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new Exception("Verification interrupted", e);
+        } catch (UppaalEngineException e) {
+            throw new Exception("Engine error during verification", e);
+        } finally {
+            if (engine != null) {
+                UppaalEnginePool.getInstance().returnEngine(engine);
+            }
+        }
+    }
+
+    private VerificationResult performVerification(UppaalEngine engine, Document document,
+                                                   Query query, boolean withTrace) throws Exception {
+        try {
+            UppaalSystem uppaalSystem = engine.compile(document);
+
+            DefaultQueryFeedback queryFeedback = new DefaultQueryFeedback();
+            QueryResult queryResult = engine.query(uppaalSystem, query, queryFeedback);
+
+            return analyzeQueryResult(queryResult, queryFeedback, uppaalSystem, withTrace);
+
+        } catch (UppaalEngineException e) {
+            throw new Exception("UPPAAL engine error during verification", e);
+        } catch (Exception e) {
+            throw new Exception("Unexpected error during verification", e);
+        }
+    }
+
+    private VerificationResult analyzeQueryResult( QueryResult queryResult, DefaultQueryFeedback queryFeedback, UppaalSystem uppaalSystem, boolean withTrace) {
         VerificationResult richResult;
-        EngineOptions engineOptions = uppaalEngine.getOptions().get();
-        EngineSettings engineSettings = engineOptions.getDefaultSettings();
-        engineSettings.setValue("--diagnostic", "2");
-        uppaalEngine.setOptionSettings(engineSettings);
-
-        UppaalSystem uppaalSystem = compile(uppaalEngine, document);
-        DefaultQueryFeedback queryFeedback = new DefaultQueryFeedback();
-
-        QueryResult queryResult = (QueryResult) uppaalEngine.query(uppaalSystem, query, queryFeedback).get();
         if (queryResult.toString().equals("OK")){
             SymbolicTrace symbolicTrace = queryFeedback.getSymbolicTrace();
 
@@ -79,67 +95,6 @@ public class UppaalClient implements AutoCloseable{
         }
 
         return richResult;
-    }
-
-    private Engine connectToEngine(String uppaalHome) throws IOException {
-
-        if (uppaalHome == null) {
-            throw new IOException("Uppaal Home not found");
-        } else {
-            Engine engine = new Engine();
-            engine.addConnection(new BundledConnection(new BinaryResolution(new File(uppaalHome))));
-            engine.connect();
-            return engine;
-        }
-    }
-
-    @Override
-    public void close() {
-        if (uppaalEngine == null) return;
-        try {
-            uppaalEngine.forceDisconnect(2000).get();
-        } catch (Exception e) {
-            System.err.println("Error disconnecting UPPAAL engine: " + e.getMessage());
-        }
-        shutdownEngineExecutor(uppaalEngine);
-        tryClearInternalReferences();
-        uppaalEngine = null;
-    }
-
-    private UppaalSystem compile(Engine engine, Document document) throws InterruptedException, ExecutionException {
-        ArrayList<Problem> problems = new ArrayList<>();
-        UppaalSystem uppaalSystem = (UppaalSystem)engine.getSystem(document, problems).get();
-        if (!problems.isEmpty()) {
-            boolean terminateProgram = false;
-            System.out.println("There are problems with the document:");
-
-            for(Problem problem : problems) {
-                System.out.println(problem.toString());
-                if (!"warning".equals(problem.getType())) {
-                    terminateProgram = true;
-                }
-            }
-
-            if (terminateProgram) {
-                System.exit(1);
-            }
-        }
-
-        return uppaalSystem;
-    }
-
-    private void shutdownEngineExecutor(Engine engine) {
-        try {
-            java.lang.reflect.Field executorField = Engine.class.getDeclaredField("executor");
-            executorField.setAccessible(true);
-            java.util.concurrent.ExecutorService executor = (java.util.concurrent.ExecutorService) executorField.get(engine);
-            if (executor != null && !executor.isShutdown()) {
-                executor.shutdownNow();
-                executor.awaitTermination(5, java.util.concurrent.TimeUnit.SECONDS);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public String generateTrace(UppaalSystem uppaalSystem, SymbolicTrace symbolicTrace) {
@@ -217,18 +172,6 @@ public class UppaalClient implements AutoCloseable{
 
         traceBuilder.append(")").append("\n");
         return traceBuilder;
-    }
-
-    private void tryClearInternalReferences() {
-        try {
-            Field connField = Engine.class.getDeclaredField("connections");
-            connField.setAccessible(true);
-            Object connections = connField.get(uppaalEngine);
-            if (connections instanceof List<?>) {
-                ((List<?>) connections).clear();
-            }
-        } catch (Exception ignored) {
-        }
     }
 
 }
