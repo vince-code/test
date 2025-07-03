@@ -1,0 +1,48 @@
+%% Import the JSON file
+fileName = 'Example_20bus_new_source_structure.json';
+% Read the data
+[A,Line,Bus,F_branch,F_bus,Irc,C,Iioc_values,Ith_values,Isc_values_Lines,Isc_values_Buses,CB_settings,Bus_connections] = Reading_json_data1(fileName);
+% Create the Info struct
+Info = struct('A',A,'Line',Line,'Bus',Bus,'F_branch',F_branch,'F_bus',F_bus,'Irc',Irc,'C',C,'Iioc_values',Iioc_values,'Ith_values',Ith_values,'Isc_values_Lines',Isc_values_Lines,'Isc_values_Buses',Isc_values_Buses,'CB_settings',CB_settings,'Bus_connections',Bus_connections);
+
+%% Create the Environment
+% Observation Information (ObsInfo)
+% CB settings
+NumCBs = length(Info.CB_settings.CB); % Total number of CBs
+CB_setts = [];% vector of size (k*2) where k is the number CBs, colomn 1 has the CB IDs and colomn 2 has he short time delay setting (t2)
+for k = 1:NumCBs
+    CB_setts(k,1) = Info.CB_settings.CB{1,k}.CB_ID; % extracting the CB ID to colomn 1
+    CB_setts(k,2) = Info.CB_settings.CB{1,k}.t2; % extracting the short time delay setting (t2) to colomn 2
+    CB_setts(k,3) = 1; % assume that all CBs are correctly configured until otherwise discovered
+end
+Info.CB_setts = CB_setts;
+
+ObsInfo = [ rlNumericSpec([NumCBs,3])   % List of CB IDs, their t2 settings and wether they are misconfigured or not(col1 CB IDs, col2 t2 setting, col3 1=right and 0=wrong)
+            rlFiniteSetSpec([1 0])      % The selectivity achieved or not observation
+          ];
+ObsInfo(1).Name = "CB_Info";
+ObsInfo(1).Description = "List of CB IDs, their t2 settings and wether they are misconfigured or not(col1 CB IDs, col2 t2 setting, col3 1=right and 0=wrong)";
+
+ObsInfo(2).Name = "Selectivity_Index";
+ObsInfo(2).Description = "A boolean variable indicating wether selectivity was achieved or not";
+
+
+% Action Information (ActInfo)
+ActInfo = rlFiniteSetSpec(1:20);
+ActInfo.Name = "t2 settings";
+
+% Custom Reset Function
+ResetHandle = @() APV_resetFcn(Info);
+
+% use rlFunctionEnv
+env = rlFunctionEnv(ObsInfo,ActInfo,APV_stepFcn,ResetHandle);
+
+
+%% Invoke the reset function to intialize the Environment
+
+
+%% Create the Agent
+
+%% Train the Agent
+
+%% Validate Trained Agent

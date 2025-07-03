@@ -1,0 +1,71 @@
+%% Initialie your folder locations
+clear all
+clc
+global XML_FOLDER; % Uppaal xml file desired location
+global VTA_FOLDER; % Verifyta location on your device
+global XMLFILENAME; % Name of the file with the full path
+global SPLIT_FOLDER;
+
+XML_FOLDER = fullfile(pwd, 'splitXML');
+VTA_FOLDER = '/Users/enzo/Desktop/Tesi/apv/UPPAAL-5.1.0-beta5.app/Contents/Resources/uppaal/bin/verifyta';
+XMLFILENAME = strcat(XML_FOLDER,filesep,'Uppaal_code_generation.xml');
+
+mkdir(SPLIT_FOLDER);
+mkdir(XML_FOLDER);
+
+jsonFiles = dir(fullfile(JSON_FOLDER, '*.json'));
+
+Info_cell = {};
+
+for i = 1:length(jsonFiles)
+    
+    % --- Load JSON ---
+    fileName = jsonFiles(i).name;
+    fullPath = fullfile(JSON_FOLDER, fileName);
+    [~, nameOnly, ~] = fileparts(fileName);
+
+    fprintf('Processing %s...\n', fileName);
+
+    % Read the data
+    [A,Line,Bus,F_branch,F_bus,Irc,C,Iioc_values,Ith_values,Isc_values_Lines,Isc_values_Buses,CB_settings,Bus_connections] = Reading_json_data1(fileName);
+    % Create the Info struct
+    Info = struct('A',A,'Line',Line,'Bus',Bus,'F_branch',F_branch,'F_bus',F_bus,'Irc',Irc,'C',C,'Iioc_values',Iioc_values,'Ith_values',Ith_values,'Isc_values_Lines',Isc_values_Lines,'Isc_values_Buses',Isc_values_Buses,'CB_settings',CB_settings,'Bus_connections',Bus_connections);
+    % CB settings
+    NumAgents = length(Info.CB_settings.CB); % Total number of CBs
+    CB_setts = [];% vector of size (k*2) where k is the number of CBs, colomn 1 has the CB IDs and colomn 2 has he short time delay setting (t2)
+    for k = 1:NumAgents
+        CB_setts(k,1) = Info.CB_settings.CB{1,k}.CB_ID; % extracting the CB ID to colomn 1
+        CB_setts(k,2) = Info.CB_settings.CB{1,k}.t2; % extracting the short time delay setting (t2) to colomn 2
+        CB_setts(k,3) = 1; % assume that all CBs are correctly configured until otherwise discovered
+    end
+    Info.CB_setts = CB_setts;
+    Info.allqueries =[];% A Variable containting all the queries that needs to be checked.
+    % It is the cell that starts with <formula> E blablabla
+    % and needs to replace the cell containing the queries
+    % in the uppaalcode variable everytime we change
+    % the t2 settings
+    Info_cell{i,1} = Info;
+end
+
+[n,m] = size(A);
+
+for i = 1:NumAgents
+    ObsInfo{1,i} = [rlNumericSpec([1,3]),rlNumericSpec([n,m])];
+    ObsInfo{1,i}(1,1).Name = 'CB info';
+    ObsInfo{1,i}(1,1).Description = 'List of CB IDs, their t2 settings and wether they are misconfigured or not(col1 CB IDs, col2 t2 setting, col3 1=right and 0=wrong)';
+    ObsInfo{1,i}(1,2).Name = 'Incidence Matrix';
+    ObsInfo{1,i}(1,2).Description = 'Matrix describing the connections between buses and lines';
+    ObsInfo{1,i}(1,2).UpperLimit = 1;
+    ObsInfo{1,i}(1,2).LowerLimit = -1;
+end
+
+
+% Action Information (ActInfo)
+ActInfo = cell(1,NumAgents);
+for i = 1:NumAgents
+    ActInfo{1,i} = rlFiniteSetSpec([1:4]);
+    ActInfo{1,i}.Name = 't2 settings';
+    ActInfo{1,i}.Description = 'All possible values for t2 settings for each CB assuming they are the same for now';
+end
+
+[InitialObs, InfoOut] = APV_resetFcnTest(Info_cell);

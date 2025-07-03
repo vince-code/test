@@ -1,0 +1,336 @@
+{
+  "Network": {
+    "Bus": {
+      "_ArrayType_": "single",
+      "_ArraySize_": [1,12],
+      "_ArrayData_": [1,2,3,4,5,6,8,9,10,11,12,13]
+    },
+    "FaultBus": {
+      "_ArrayType_": "single",
+      "_ArraySize_": [1,6],
+      "_ArrayData_": [4,5,6,10,12,13]
+    },
+    "Sources": [{
+      "Bus_ID": 8,
+      "Isc_Lines": [5500,5500,5500,7400,7400,0,5500,5500,5500,5500,7400],
+      "Isc_Buses": [5500,5500,5500,7400,9500,7400,0,5500,5500,5500,5500,7400]
+    }
+	],
+    "Lines": [
+      {
+        "ID": 1,
+        "IncidentBus": 1,
+        "OutgoingBus": 4,
+        "Iioc": 20,
+        "Ith": 25,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 2,
+        "IncidentBus": 2,
+        "OutgoingBus": 4,
+        "Iioc": 17,
+        "Ith": 25,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 3,
+        "IncidentBus": 3,
+        "OutgoingBus": 4,
+        "Iioc": 17,
+        "Ith": 25,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 5,
+        "IncidentBus": 4,
+        "OutgoingBus": 5,
+        "Iioc": 54,
+        "Ith": 75,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 6,
+        "IncidentBus": 6,
+        "OutgoingBus": 5,
+        "Iioc": 20,
+        "Ith": 25,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 8,
+        "IncidentBus": 5,
+        "OutgoingBus": 8,
+        "Iioc": 134,
+        "Ith": 150,
+        "FaultFlag": 0
+      },
+      {
+        "ID": 9,
+        "IncidentBus": 9,
+        "OutgoingBus": 12,
+        "Iioc": 20,
+        "Ith": 25,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 10,
+        "IncidentBus": 10,
+        "OutgoingBus": 12,
+        "Iioc": 20,
+        "Ith": 25,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 11,
+        "IncidentBus": 11,
+        "OutgoingBus": 13,
+        "Iioc": 20,
+        "Ith": 25,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 12,
+        "IncidentBus": 12,
+        "OutgoingBus": 13,
+        "Iioc": 40,
+        "Ith": 50,
+        "FaultFlag": 1
+      },
+      {
+        "ID": 13,
+        "IncidentBus": 13,
+        "OutgoingBus": 5,
+        "Iioc": 60,
+        "Ith": 75,
+        "FaultFlag": 1
+      }
+    ]
+  },
+  "CB_settings": {
+    "CB": [
+      {
+        "CB_ID": 1,
+        "Line_ID": 1,
+        "Bus_ID": 4,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 25,
+        "t1": 30,
+        "i2": 95,
+        "i2_flag": 1,
+        "t2": 2,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 2,
+        "Line_ID": 2,
+        "Bus_ID": 4,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 25,
+        "t1": 30,
+        "i2": 95,
+        "i2_flag": 1,
+        "t2": 2,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 3,
+        "Line_ID": 3,
+        "Bus_ID": 4,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 25,
+        "t1": 30,
+        "i2": 95,
+        "i2_flag": 1,
+        "t2": 2,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 5,
+        "Line_ID": 5,
+        "Bus_ID": 5,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 75,
+        "t1": 120,
+        "i2": 150,
+        "i2_flag": 1,
+        "t2": 4,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 6,
+        "Line_ID": 6,
+        "Bus_ID": 5,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 25,
+        "t1": 30,
+        "i2": 95,
+        "i2_flag": 1,
+        "t2": 2,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 8,
+        "Line_ID": 8,
+        "Bus_ID": 8,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 150,
+        "t1": 150,
+        "i2": 250,
+        "i2_flag": 1,
+        "t2": 8,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 9,
+        "Line_ID": 9,
+        "Bus_ID": 12,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 25,
+        "t1": 30,
+        "i2": 95,
+        "i2_flag": 1,
+        "t2": 2,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 10,
+        "Line_ID": 10,
+        "Bus_ID": 12,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 25,
+        "t1": 30,
+        "i2": 95,
+        "i2_flag": 1,
+        "t2": 2,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 11,
+        "Line_ID": 11,
+        "Bus_ID": 13,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 25,
+        "t1": 30,
+        "i2": 95,
+        "i2_flag": 1,
+        "t2": 2,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 12,
+        "Line_ID": 12,
+        "Bus_ID": 13,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 75,
+        "t1": 60,
+        "i2": 170,
+        "i2_flag": 1,
+        "t2": 4,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      },
+      {
+        "CB_ID": 13,
+        "Line_ID": 13,
+        "Bus_ID": 5,
+        "Sel_Type": 1,
+        "m": 3,
+        "i1": 75,
+        "t1": 120,
+        "i2": 150,
+        "i2_flag": 1,
+        "t2": 6,
+        "i3": "Nan",
+        "i3_flag": 0,
+        "t3": "Nan"
+      }
+    ],
+    "Ekip_Link": [
+      {
+        "CB_ID": 1,
+        "Line_ID": 1,
+        "Actors": []
+      },
+      {
+        "CB_ID": 2,
+        "Line_ID": 2,
+        "Actors": []
+      },
+      {
+        "CB_ID": 3,
+        "Line_ID": 3,
+        "Actors": []
+      },
+      {
+        "CB_ID": 5,
+        "Line_ID": 5,
+        "Actors": []
+      },
+      {
+        "CB_ID": 6,
+        "Line_ID": 6,
+        "Actors": []
+      },
+      {
+        "CB_ID": 8,
+        "Line_ID": 8,
+        "Actors": []
+      },
+      {
+        "CB_ID": 9,
+        "Line_ID": 9,
+        "Actors": []
+      },
+      {
+        "CB_ID": 10,
+        "Line_ID": 10,
+        "Actors": []
+      },
+      {
+        "CB_ID": 11,
+        "Line_ID": 11,
+        "Actors": []
+      },
+      {
+        "CB_ID": 12,
+        "Line_ID": 12,
+        "Actors": []
+      },
+      {
+        "CB_ID": 13,
+        "Line_ID": 13,
+        "Actors": []
+      }
+    ]
+  }
+}

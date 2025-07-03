@@ -1,0 +1,12 @@
+Options for the verification:
+  Generating some trace
+  Search order is breadth first
+  Using conservative space optimisation
+  Seed is 1681919744
+  State space representation uses minimal constraint systems
+[2K
+Verifying formula 1 at /nta/queries/query[1]/formula
+ -- Throughput: 50090 states/sec, Load: 11477 states[K -- Throughput: 63035 states/sec, Load: 6041 states[K[2K -- Formula is NOT satisfied.
+[2K
+Verifying formula 2 at /nta/queries/query[2]/formula
+ -- Throughput: 80 states/sec, Load: 219 states[K -- Throughput: 39079 states/sec, Load: 5736 states[K -- Throughput: 34348 states/sec, Load: 2303 states[K -- Throughput: 28336 states/sec, Load: 7548 states[K -- Throughput: 40664 states/sec, Load: 12 states[K[2K -- Formula is NOT satisfied.

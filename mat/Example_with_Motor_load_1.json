@@ -1,0 +1,91 @@
+{
+ "Network": {
+				"Bus":{
+					  "_ArrayType_": "single",
+					  "_ArraySize_": [1,4],
+					  "_ArrayData_": [1,2,3,4]
+				},
+				"FaultBus":{
+						   "_ArrayType_": "single",
+					       "_ArraySize_": [1,1],
+						   "_ArrayData_": [3]
+				},
+				"Sources":[
+				          {
+						   "Bus_ID": 4,
+						   "Isc_Lines": [500,500,1000],
+						   "Isc_Buses": [500,500,700,1000]
+						  }
+				],
+				"Lines":[
+					{
+					   "ID": 1,
+					   "IncidentBus": 1,
+					   "OutgoingBus": 3,
+					   "Iioc": 60,
+					   "Ith": 88,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 2,
+					   "IncidentBus": 2,
+					   "OutgoingBus": 3,
+					   "Iioc": 80,
+					   "Ith": 120,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 3,
+					   "IncidentBus": 3,
+					   "OutgoingBus": 4,
+					   "Iioc": 140,
+					   "Ith": 160,
+					   "FaultFlag": 1
+					}
+				]
+			},
+			
+ "CB_settings": {
+					"CB":[
+						{
+						  "CB_ID": 1,
+					      "Line_ID": 1,
+						  "Bus_ID": 1,
+						  "m": 3,
+						  "i1": 88,
+						  "t1": 150,
+						  "i2": 250,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						},
+						{
+						  "CB_ID": 2,
+					      "Line_ID": 2,
+						  "Bus_ID": 2,
+						  "m": 3,
+						  "i1": 120,
+						  "t1": 120,
+						  "i2": 320,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						},
+						{
+						  "CB_ID": 3,
+					      "Line_ID": 3,
+						  "Bus_ID": 3,
+						  "m": 3,
+						  "i1": 160,
+						  "t1": 100,
+						  "i2": 400,
+						  "i2_flag": 1,
+						  "t2": 3,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						}
+					]						
+				}
+}

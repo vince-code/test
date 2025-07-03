@@ -1,0 +1,216 @@
+{
+ "Network": {
+				"Bus":{
+					  "_ArrayType_": "single",
+					  "_ArraySize_": [1,6],
+					  "_ArrayData_": [1,2,3,4,5,6]
+				},
+				"FaultBus":{
+						   "_ArrayType_": "single",
+					       "_ArraySize_": [1,4],
+						   "_ArrayData_": [3,4,5,6]
+				},
+				"Sources":[
+				          {
+						   "Bus_ID": 4,
+						   "Isc_Lines": [300,300,500,0,500],
+						   "Isc_Buses": [300,300,500,0,500,500]
+						  },
+						  {
+						   "Bus_ID": 5,
+						   "Isc_Lines": [300,300,500,500,0],
+						   "Isc_Buses": [300,300,500,500,0,500]
+						  }
+				],
+				"Lines":[
+					{
+					   "ID": 1,
+					   "IncidentBus": 1,
+					   "OutgoingBus": 3,
+					   "Iioc": 60,
+					   "Ith": 80,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 2,
+					   "IncidentBus": 2,
+					   "OutgoingBus": 6,
+					   "Iioc": 140,
+					   "Ith": 180,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 3,
+					   "IncidentBus": 6,
+					   "OutgoingBus": 3,
+					   "Iioc": 40,
+					   "Ith": 180,
+					   "FaultFlag": 0
+					},
+					{
+					   "ID": 4,
+					   "IncidentBus": 3,
+					   "OutgoingBus": 4,
+					   "Iioc": 100,
+					   "Ith": 200,
+					   "FaultFlag": 0
+					},
+					{
+					   "ID": 5,
+					   "IncidentBus": 6,
+					   "OutgoingBus": 5,
+					   "Iioc": 100,
+					   "Ith": 200,
+					   "FaultFlag": 0
+					}
+				]
+			},
+			
+ "CB_settings": {
+					"CB":[
+						{
+						  "CB_ID": 1,
+					      "Line_ID": 1,
+						  "Bus_ID": 1,
+						  "Sel_Type": 3,
+						  "m": 3,
+						  "i1": 80,
+						  "t1": 100,
+						  "i7": 160,
+						  "t7FW": 2,
+						  "t7BW": 2,
+						  "tselFW": 1,
+						  "tselBW": 1
+						},
+						{
+						  "CB_ID": 2,
+					      "Line_ID": 2,
+						  "Bus_ID": 2,
+						  "Sel_Type": 3,
+						  "m": 3,
+						  "i1": 180,
+						  "t1": 100,
+						  "i7": 360,
+						  "t7FW": 2,
+						  "t7BW": 2,
+						  "tselFW": 1,
+						  "tselBW": 1
+						},
+						{
+						  "CB_ID": 3,
+					      "Line_ID": 3,
+						  "Bus_ID": 3,
+						  "Sel_Type": 3,
+						  "m": 3,
+						  "i1": 180,
+						  "t1": 120,
+						  "i7": 360,
+						  "t7FW": 3,
+						  "t7BW": 3,
+						  "tselFW": 1,
+						  "tselBW": 1
+						},
+						{
+						  "CB_ID": 4,
+					      "Line_ID": 4,
+						  "Bus_ID": 4,
+						  "Sel_Type": 3,
+						  "m": 3,
+						  "i1": 200,
+						  "t1": 150,
+						  "i7": 400,
+						  "t7FW": 3,
+						  "t7BW": 3,
+						  "tselFW": 1,
+						  "tselBW": 1
+						},
+						{
+						  "CB_ID": 5,
+					      "Line_ID": 5,
+						  "Bus_ID": 5,
+						  "Sel_Type": 3,
+						  "m": 3,
+						  "i1": 200,
+						  "t1": 150,
+						  "i7": 400,
+						  "t7FW": 3,
+						  "t7BW": 3,
+						  "tselFW": 1,
+						  "tselBW": 1
+						}
+					],	
+					"Ekip_Link":[
+					           {
+								   "CB_ID": 1,
+								   "Line_ID": 1,
+								   "Actors":[
+											]
+							   },
+							   {
+								   "CB_ID": 2,
+								   "Line_ID": 2,
+								   "Actors":[
+											]
+							   },
+					           {
+								   "CB_ID": 3,
+								   "Line_ID": 3,
+								   "Actors":[
+											{
+											"Actor_CB": 1,
+											"Actor_CB_Dir": 1,
+											"CB_Dir": 0
+											},
+											{
+											"Actor_CB": 2,
+											"Actor_CB_Dir": 1,
+											"CB_Dir": 1
+											},
+											{
+											"Actor_CB": 4,
+											"Actor_CB_Dir": 0,
+											"CB_Dir": 0
+											},
+											{
+											"Actor_CB": 5,
+											"Actor_CB_Dir": 0,
+											"CB_Dir": 1
+											}
+											]
+							   },
+							   {
+								   "CB_ID": 4,
+								   "Line_ID": 4,
+								   "Actors":[
+											{
+											"Actor_CB": 1,
+											"Actor_CB_Dir": 1,
+											"CB_Dir": 1
+											},
+											{
+											"Actor_CB": 3,
+											"Actor_CB_Dir": 1,
+											"CB_Dir": 1
+											}
+											]
+							   },
+							   {
+								   "CB_ID": 5,
+								   "Line_ID": 5,
+								   "Actors":[
+											{
+											"Actor_CB": 2,
+											"Actor_CB_Dir": 1,
+											"CB_Dir": 1
+											},
+											{
+											"Actor_CB": 3,
+											"Actor_CB_Dir": 0,
+											"CB_Dir": 1
+											}
+											]
+							   }
+							   
+					]					
+				}
+}

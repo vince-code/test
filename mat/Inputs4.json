@@ -1,0 +1,115 @@
+{
+ "Network": {
+				"Bus":{
+					  "_ArrayType_": "single",
+					  "_ArraySize_": [1,6],
+					  "_ArrayData_": [1,2,3,4,5,6]
+				},
+				"FaultBus":{
+						   "_ArrayType_": "single",
+					       "_ArraySize_": [1,6],
+						   "_ArrayData_": [1,2,3,4,5,6]
+				},
+				"Lines":[
+					{
+					   "ID": 1,
+					   "IncidentBus": 2,
+					   "OutgoingBus": 1,
+					   "r": 0.1,
+					   "x": 0.2,
+					   "b": 0.04,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 2,
+					   "IncidentBus": 4,
+					   "OutgoingBus": 1,
+					   "r": 0.05,
+					   "x": 0.2,
+					   "b": 0.04,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 3,
+					   "IncidentBus": 5,
+					   "OutgoingBus": 1,
+					   "r": 0.08,
+					   "x": 0.3,
+					   "b": 0.06,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 4,
+					   "IncidentBus": 3,
+					   "OutgoingBus": 2,
+					   "r": 0.05,
+					   "x": 0.25,
+					   "b": 0.06,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 5,
+					   "IncidentBus": 4,
+					   "OutgoingBus": 2,
+					   "r": 0.05,
+					   "x": 0.1,
+					   "b": 0.02,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 6,
+					   "IncidentBus": 5,
+					   "OutgoingBus": 2,
+					   "r": 0.1,
+					   "x": 0.3,
+					   "b": 0.04,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 7,
+					   "IncidentBus": 6,
+					   "OutgoingBus": 2,
+					   "r": 0.07,
+					   "x": 0.2,
+					   "b": 0.05,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 8,
+					   "IncidentBus": 5,
+					   "OutgoingBus": 3,
+					   "r": 0.12,
+					   "x": 0.26,
+					   "b": 0.05,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 9,
+					   "IncidentBus": 6,
+					   "OutgoingBus": 3,
+					   "r": 0.02,
+					   "x": 0.1,
+					   "b": 0.02,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 10,
+					   "IncidentBus": 5,
+					   "OutgoingBus": 4,
+					   "r": 0.2,
+					   "x": 0.4,
+					   "b": 0.08,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 11,
+					   "IncidentBus": 6,
+					   "OutgoingBus": 5,
+					   "r": 0.1,
+					   "x": 0.3,
+					   "b": 0.06,
+					   "FaultFlag": 1
+					}
+				]
+			}
+}

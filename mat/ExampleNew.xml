@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>
+broadcast chan L1_fault, L2_fault, L3_fault, L4_fault, L5_fault;
+broadcast chan LB1_fault, LB2_fault, LB3_fault, LB4_fault, LB5_fault, LB6_fault;
+broadcast chan CBopen, Faults, Reset, Fault_cleared, Close;
+
+int Iioc_1 = 60;
+int Iioc_2 = 140;
+int Iioc_3 = 40;
+int Iioc_4 = 100;
+int Iioc_5 = 100;
+
+int Ith_1 = 80;
+int Ith_2 = 180;
+int Ith_3 = 180;
+int Ith_4 = 200;
+int Ith_5 = 200;
+
+int Isc_4_1 = 300;
+int Isc_4_2 = 300;
+int Isc_4_3 = 500;
+int Isc_4_4 = 0;
+int Isc_4_5 = 500;
+int Isc_5_1 = 300;
+int Isc_5_2 = 300;
+int Isc_5_3 = 500;
+int Isc_5_4 = 500;
+int Isc_5_5 = 0;
+
+int Iscb_4_1 = 300;
+int Iscb_4_2 = 300;
+int Iscb_4_3 = 500;
+int Iscb_4_4 = 0;
+int Iscb_4_5 = 500;
+int Iscb_4_6 = 500;
+int Iscb_5_1 = 300;
+int Iscb_5_2 = 300;
+int Iscb_5_3 = 500;
+int Iscb_5_4 = 500;
+int Iscb_5_5 = 0;
+int Iscb_5_6 = 500;
+
+int Irc_1 = 60;
+int Irc_2 = 140;
+int Irc_3 = 40;
+int Irc_4 = 100;
+int Irc_5 = 100;
+
+bool F1 = false;
+bool F2 = false;
+bool F3 = false;
+bool F4 = false;
+bool F5 = false;
+
+bool FB1 = false;
+bool FB2 = false;
+bool FB3 = false;
+bool FB4 = false;
+bool FB5 = false;
+bool FB6 = false;
+
+
+int F;
+int FB;
+
+int C1 = 1;
+int C2 = 1;
+int C3 = 1;
+int C4 = 1;
+int C5 = 1;
+
+bool IsFWD_1 = true;
+bool IsFWD_2 = true;
+bool IsFWD_3 = true;
+bool IsFWD_4 = true;
+bool IsFWD_5 = true;
+
+bool Block_1 = false;
+bool Block_2 = false;
+bool Block_3 = false;
+bool Block_4 = false;
+bool Block_5 = false;
+
+void Isc(int L, int LB){
+  if (L==1){
+   F = 1;
+   Irc_4 = Isc_4_1;
+   Irc_5 = Isc_5_1;
+   IsFWD_3 = false;
+   Block_3 = true;
+   Block_4 = true;
+   Block_5 = true;
+   Irc_2 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+   Irc_1 = Irc_3 + Irc_4;
+  }
+  else if (L==2){
+   F = 2;
+   Irc_4 = Isc_4_2;
+   Irc_5 = Isc_5_2;
+   Block_3 = true;
+   Block_4 = true;
+   Block_5 = true;
+   Irc_1 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+   Irc_2 = Irc_3 + Irc_5;
+  }
+  else if (LB==3){
+   FB = 3;
+   Irc_4 = Iscb_4_3;
+   Irc_5 = Iscb_5_3;
+   IsFWD_3 = false;
+   Block_5 = true;
+   Irc_1 = 0;
+   Irc_2 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (LB==4){
+   FB = 4;
+   Irc_5 = Iscb_5_4;
+   IsFWD_3 = false;
+   IsFWD_4 = false;
+   Block_3 = true;
+   Block_5 = true;
+   Irc_1 = 0;
+   Irc_2 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+   Irc_4 = Irc_3 - Irc_1;
+  }
+  else if (LB==5){
+   FB = 5;
+   Irc_4 = Iscb_4_5;
+   IsFWD_5 = false;
+   Block_3 = true;
+   Block_4 = true;
+   Irc_1 = 0;
+   Irc_2 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+   Irc_5 = Irc_3 - Irc_2;
+  }
+  else if (LB==6){
+   FB = 6;
+   Irc_4 = Iscb_4_6;
+   Irc_5 = Iscb_5_6;
+   Block_4 = true;
+   Irc_1 = 0;
+   Irc_2 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+}
+void update(int CB_ID){
+ if (F==1){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_4 = 0;
+  Irc_5 = 0;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_2 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+   Irc_1 = Irc_3 + Irc_4;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_3 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+   Irc_1 = Irc_3 + Irc_4;
+  }
+  else if (CB_ID==4){
+   C4 = 0;
+  Irc_4 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+   Irc_1 = Irc_3 + Irc_4;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_5 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+   Irc_1 = Irc_3 + Irc_4;
+  }
+ }
+
+ else if (F==2){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+   Irc_2 = Irc_3 + Irc_5;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_4 = 0;
+  Irc_5 = 0;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_3 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+   Irc_2 = Irc_3 + Irc_5;
+  }
+  else if (CB_ID==4){
+   C4 = 0;
+  Irc_4 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+   Irc_2 = Irc_3 + Irc_5;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_5 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+   Irc_2 = Irc_3 + Irc_5;
+  }
+ }
+
+ else if (FB==3){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_2 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_3 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==4){
+   C4 = 0;
+  Irc_4 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_5 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+ }
+
+ else if (FB==4){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_2 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_3 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==4){
+   C4 = 0;
+  Irc_4 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_5 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_5 - Irc_2;
+  }
+ }
+
+ else if (FB==5){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_2 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_3 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==4){
+   C4 = 0;
+  Irc_4 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_5 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+ }
+
+ else if (FB==6){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_2 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_3 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==4){
+   C4 = 0;
+  Irc_4 = 0;
+   Irc_4 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_5 = 0;
+   Irc_5 = 0;
+   Irc_3 = Irc_4 - Irc_1;
+  }
+ }
+}
+void clear (){
+  Irc_1 = Iioc_1;
+  Irc_2 = Iioc_2;
+  Irc_3 = Iioc_3;
+  Irc_4 = Iioc_4;
+  Irc_5 = Iioc_5;
+  IsFWD_1 = true;
+  IsFWD_2 = true;
+  IsFWD_3 = true;
+  IsFWD_4 = true;
+  IsFWD_5 = true;
+  Block_1 = false;
+  Block_2 = false;
+  Block_3 = false;
+  Block_4 = false;
+  Block_5 = false;
+}
+</declaration>
+	<template>
+		<name>Fault_Generator</name>
+		<location id="id0" x="-306" y="-127">
+			<name x="-357" y="-161">No_Fault</name>
+		</location>
+		<location id="id1" x="263" y="-127">
+			<name x="253" y="-161">Fault_Signal</name>
+			<committed/>
+		</location>
+		<location id="id2" x="-306" y="221">
+			<name x="-349" y="238">Reset_Ready</name>
+		</location>
+		<location id="id3" x="272" y="221">
+			<name x="238" y="238">Check_Fault</name>
+			<committed/>
+		</location>
+		<location id="id4" x="476" y="25">
+			<name x="466" y="-9">Fault</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-77" y="191">Irc_1&lt;Ith_1 &amp;&amp; Irc_2&lt;Ith_2 &amp;&amp; Irc_3&lt;Ith_3 &amp;&amp; Irc_4&lt;Ith_4 &amp;&amp; Irc_5&lt;Ith_5</label>
+			<label kind="synchronisation" x="-77" y="206">Fault_cleared!</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="guard" x="314" y="93">Irc_1&gt;=Ith_1 or Irc_2&gt;=Ith_2 or Irc_3&gt;=Ith_3 or Irc_4&gt;=Ith_4 or Irc_5&gt;=Ith_5</label>
+			<label kind="synchronisation" x="314" y="108">Close!</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="314" y="108">CBopen?</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="309" y="-66">Faults!</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-81" y="-157">Irc_1!=0</label>
+			<label kind="synchronisation" x="-81" y="-142">L1_fault!</label>
+			<label kind="assignment" x="-81" y="-127">Isc(1,0), F1=true</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-81" y="-157">Irc_2!=0</label>
+			<label kind="synchronisation" x="-81" y="-142">L2_fault!</label>
+			<label kind="assignment" x="-81" y="-127">Isc(2,0), F2=true</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-81" y="-142">LB3_fault!</label>
+			<label kind="assignment" x="-81" y="-127">Isc(0,3), FB3=true</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-81" y="-142">LB4_fault!</label>
+			<label kind="assignment" x="-81" y="-127">Isc(0,4), FB4=true</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-81" y="-142">LB5_fault!</label>
+			<label kind="assignment" x="-81" y="-127">Isc(0,5), FB5=true</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-81" y="-142">LB6_fault!</label>
+			<label kind="assignment" x="-81" y="-127">Isc(0,6), FB6=true</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-366" y="32">Reset!</label>
+			<label kind="assignment" x="-366" y="47">F=0, FB=0, F1=false, F2=false, FB3=false, FB4=false, FB5=false, FB6=false</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_1</name>
+		<declaration>
+  clock x;
+
+  int t;
+  int m = 3;
+  int i1 = 80;
+  int t1 = 100;
+  int i7 = 160;
+  int t7FW = 2;
+  int t7BW = 2;
+  int tselFW = 1;
+  int tselBW = 1;
+  void triptime(int I, bool IsFWD){
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i7){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i7){
+     if(IsFWD == true){
+      t = t7FW;
+     }
+     else if(IsFWD == false){
+      t = t7BW;
+     }
+     }
+   }
+  void tsel(bool IsFWD){
+    if(IsFWD == true){
+      t = tselFW;
+    }
+    if(IsFWD == false){
+      t = tselBW;
+    }
+  }
+  </declaration>
+		<location id="id5" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<location id="id6" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id7" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<init ref="id5"/>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-301" y="-164">Irc_1&gt;Ith_1 &amp;&amp; Block_1 == false</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0, tsel(IsFWD_1)</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-354" y="-238">Irc_1&gt;Ith_1 &amp;&amp; Block_1 == true</label>
+			<label kind="synchronisation" x="-354" y="-223">Faults?</label>
+			<label kind="assignment" x="-354" y="-208">x=0,triptime(Irc_1,IsFWD_1)</label>
+			<nail x="-363" y="-188"/>
+			<nail x="-239" y="-261"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-389" y="-308">Irc_1&lt;Ith_1</label>
+			<label kind="synchronisation" x="-389" y="-293">Fault_cleared?</label>
+			<nail x="-267" y="-329"/>
+			<nail x="-402" y="-255"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-406" y="-349">Irc_1&lt;Ith_1</label>
+			<label kind="synchronisation" x="-406" y="-334">Close?</label>
+			<nail x="-280" y="-365"/>
+			<nail x="-438" y="-278"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-182" y="-83">Reset?</label>
+			<label kind="assignment" x="-182" y="-68">clear(), C1=1</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="guard" x="-60" y="-164">x==t &amp;&amp; Irc_1&gt;=Ith_1</label>
+			<label kind="synchronisation" x="-60" y="-149">CBopen!</label>
+			<label kind="assignment" x="-60" y="-134">update(1)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_2</name>
+		<declaration>
+  clock x;
+
+  int t;
+  int m = 3;
+  int i1 = 180;
+  int t1 = 100;
+  int i7 = 360;
+  int t7FW = 2;
+  int t7BW = 2;
+  int tselFW = 1;
+  int tselBW = 1;
+  void triptime(int I, bool IsFWD){
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i7){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i7){
+     if(IsFWD == true){
+      t = t7FW;
+     }
+     else if(IsFWD == false){
+      t = t7BW;
+     }
+     }
+   }
+  void tsel(bool IsFWD){
+    if(IsFWD == true){
+      t = tselFW;
+    }
+    if(IsFWD == false){
+      t = tselBW;
+    }
+  }
+  </declaration>
+		<location id="id8" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<location id="id9" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id10" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<init ref="id8"/>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-301" y="-164">Irc_2&gt;Ith_2 &amp;&amp; Block_2 == false</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0, tsel(IsFWD_2)</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-301" y="-164">Irc_2&gt;Ith_2 &amp;&amp; Block_2 == true</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0,triptime(Irc_2,IsFWD_2)</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-301" y="-164">Irc_2&lt;Ith_2</label>
+			<label kind="synchronisation" x="-301" y="-149">Fault_cleared?</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-301" y="-164">Irc_2&lt;Ith_2</label>
+			<label kind="synchronisation" x="-301" y="-149">Close?</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-182" y="-83">Reset?</label>
+			<label kind="assignment" x="-182" y="-68">clear(), C2=1</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-60" y="-164">x==t &amp;&amp; Irc_2&gt;=Ith_2</label>
+			<label kind="synchronisation" x="-60" y="-149">CBopen!</label>
+			<label kind="assignment" x="-60" y="-134">update(2)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_3</name>
+		<declaration>
+  clock x;
+
+  int t;
+  int m = 3;
+  int i1 = 180;
+  int t1 = 120;
+  int i7 = 360;
+  int t7FW = 3;
+  int t7BW = 3;
+  int tselFW = 1;
+  int tselBW = 1;
+  void triptime(int I, bool IsFWD){
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i7){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i7){
+     if(IsFWD == true){
+      t = t7FW;
+     }
+     else if(IsFWD == false){
+      t = t7BW;
+     }
+     }
+   }
+  void tsel(bool IsFWD){
+    if(IsFWD == true){
+      t = tselFW;
+    }
+    if(IsFWD == false){
+      t = tselBW;
+    }
+  }
+  </declaration>
+		<location id="id11" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<location id="id12" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id13" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<init ref="id11"/>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id12"/>
+			<label kind="guard" x="-301" y="-164">Irc_3&gt;Ith_3 &amp;&amp; Block_3 == false</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0, tsel(IsFWD_3)</label>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id12"/>
+			<label kind="guard" x="-301" y="-164">Irc_3&gt;Ith_3 &amp;&amp; Block_3 == true</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0,triptime(Irc_3,IsFWD_3)</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="guard" x="-301" y="-164">Irc_3&lt;Ith_3</label>
+			<label kind="synchronisation" x="-301" y="-149">Fault_cleared?</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="guard" x="-301" y="-164">Irc_3&lt;Ith_3</label>
+			<label kind="synchronisation" x="-301" y="-149">Close?</label>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="-182" y="-83">Reset?</label>
+			<label kind="assignment" x="-182" y="-68">clear(), C3=1</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id13"/>
+			<label kind="guard" x="-60" y="-164">x==t &amp;&amp; Irc_3&gt;=Ith_3</label>
+			<label kind="synchronisation" x="-60" y="-149">CBopen!</label>
+			<label kind="assignment" x="-60" y="-134">update(3)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_4</name>
+		<declaration>
+  clock x;
+
+  int t;
+  int m = 3;
+  int i1 = 200;
+  int t1 = 150;
+  int i7 = 400;
+  int t7FW = 3;
+  int t7BW = 3;
+  int tselFW = 1;
+  int tselBW = 1;
+  void triptime(int I, bool IsFWD){
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i7){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i7){
+     if(IsFWD == true){
+      t = t7FW;
+     }
+     else if(IsFWD == false){
+      t = t7BW;
+     }
+     }
+   }
+  void tsel(bool IsFWD){
+    if(IsFWD == true){
+      t = tselFW;
+    }
+    if(IsFWD == false){
+      t = tselBW;
+    }
+  }
+  </declaration>
+		<location id="id14" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<location id="id15" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id16" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<init ref="id14"/>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id15"/>
+			<label kind="guard" x="-301" y="-164">Irc_4&gt;Ith_4 &amp;&amp; Block_4 == false</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0, tsel(IsFWD_4)</label>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id15"/>
+			<label kind="guard" x="-301" y="-164">Irc_4&gt;Ith_4 &amp;&amp; Block_4 == true</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0,triptime(Irc_4,IsFWD_4)</label>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id14"/>
+			<label kind="guard" x="-301" y="-164">Irc_4&lt;Ith_4</label>
+			<label kind="synchronisation" x="-301" y="-149">Fault_cleared?</label>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id14"/>
+			<label kind="guard" x="-301" y="-164">Irc_4&lt;Ith_4</label>
+			<label kind="synchronisation" x="-301" y="-149">Close?</label>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-182" y="-83">Reset?</label>
+			<label kind="assignment" x="-182" y="-68">clear(), C4=1</label>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id16"/>
+			<label kind="guard" x="-60" y="-164">x==t &amp;&amp; Irc_4&gt;=Ith_4</label>
+			<label kind="synchronisation" x="-60" y="-149">CBopen!</label>
+			<label kind="assignment" x="-60" y="-134">update(4)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_5</name>
+		<declaration>
+  clock x;
+
+  int t;
+  int m = 3;
+  int i1 = 200;
+  int t1 = 150;
+  int i7 = 400;
+  int t7FW = 3;
+  int t7BW = 3;
+  int tselFW = 1;
+  int tselBW = 1;
+  void triptime(int I, bool IsFWD){
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i7){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i7){
+     if(IsFWD == true){
+      t = t7FW;
+     }
+     else if(IsFWD == false){
+      t = t7BW;
+     }
+     }
+   }
+  void tsel(bool IsFWD){
+    if(IsFWD == true){
+      t = tselFW;
+    }
+    if(IsFWD == false){
+      t = tselBW;
+    }
+  }
+  </declaration>
+		<location id="id17" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<location id="id18" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id19" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<init ref="id17"/>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-301" y="-164">Irc_5&gt;Ith_5 &amp;&amp; Block_5 == false</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0, tsel(IsFWD_5)</label>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-301" y="-164">Irc_5&gt;Ith_5 &amp;&amp; Block_5 == true</label>
+			<label kind="synchronisation" x="-301" y="-149">Faults?</label>
+			<label kind="assignment" x="-301" y="-134">x=0,triptime(Irc_5,IsFWD_5)</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id17"/>
+			<label kind="guard" x="-301" y="-164">Irc_5&lt;Ith_5</label>
+			<label kind="synchronisation" x="-301" y="-149">Fault_cleared?</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id17"/>
+			<label kind="guard" x="-301" y="-164">Irc_5&lt;Ith_5</label>
+			<label kind="synchronisation" x="-301" y="-149">Close?</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id17"/>
+			<label kind="synchronisation" x="-182" y="-83">Reset?</label>
+			<label kind="assignment" x="-182" y="-68">clear(), C5=1</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id19"/>
+			<label kind="guard" x="-60" y="-164">x==t &amp;&amp; Irc_5&gt;=Ith_5</label>
+			<label kind="synchronisation" x="-60" y="-149">CBopen!</label>
+			<label kind="assignment" x="-60" y="-134">update(5)</label>
+		</transition>
+	</template>
+	<system>
+FG = Fault_Generator();
+CB1 = Circuit_Breaker_1();
+CB2 = Circuit_Breaker_2();
+CB3 = Circuit_Breaker_3();
+CB4 = Circuit_Breaker_4();
+CB5 = Circuit_Breaker_5();
+system FG, CB1, CB2, CB3, CB4, CB5;
+</system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt;((!CB1.Open &amp;&amp; CB4.Open &amp;&amp; F1)||(!CB2.Open &amp;&amp; CB3.Open &amp;&amp; F2)||(!CB2.Open &amp;&amp; CB5.Open &amp;&amp; F2)||(!CB2.Open &amp;&amp; CB4.Open &amp;&amp; F2)||(!CB3.Open &amp;&amp; CB4.Open &amp;&amp; FB6))</formula>
+			<comment></comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; deadlock</formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

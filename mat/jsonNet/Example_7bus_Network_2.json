@@ -1,0 +1,160 @@
+{
+ "Network": {
+				"Bus":{
+					  "_ArrayType_": "single",
+					  "_ArraySize_": [1,7],
+					  "_ArrayData_": [1,2,3,4,5,6,7]
+				},
+				"FaultBus":{
+						   "_ArrayType_": "single",
+					       	   "_ArraySize_": [1,5],
+						   "_ArrayData_": [2,4,5,6,7]
+				},
+				"Sources":[
+				          {
+						   "Bus_ID": 1,
+						   "Isc_Lines": [0,5500,5500,5500,5500,5500],
+						   "Isc_Buses": [0,5500,5500,5500,5500,5500,7400]
+						  }
+				],
+				"Lines":[
+					{
+					   "ID": 1,
+					   "IncidentBus": 7,
+					   "OutgoingBus": 1,
+					   "Iioc": 100,
+					   "Ith": 125,
+					   "FaultFlag": 0
+					},
+					{
+					   "ID": 2,
+					   "IncidentBus": 2,
+					   "OutgoingBus": 7,
+					   "Iioc": 20,
+					   "Ith": 25,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 3,
+					   "IncidentBus": 3,
+					   "OutgoingBus": 7,
+					   "Iioc": 20,
+					   "Ith": 25,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 4,
+					   "IncidentBus": 4,
+					   "OutgoingBus": 7,
+					   "Iioc": 20,
+					   "Ith": 25,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 5,
+					   "IncidentBus": 5,
+					   "OutgoingBus": 7,
+					   "Iioc": 20,
+					   "Ith": 25,
+					   "FaultFlag": 1
+					},
+					{
+					   "ID": 6,
+					   "IncidentBus": 6,
+					   "OutgoingBus": 7,
+					   "Iioc": 20,
+					   "Ith": 25,
+					   "FaultFlag": 1
+					}					
+				]
+			},
+			
+ "CB_settings": {
+					"CB":[
+						{
+						  "CB_ID": 1,
+					      	  "Line_ID": 1,
+						  "Bus_ID": 1,
+						  "Sel_Type": 1,
+						  "m": 3,
+						  "i1": 125,
+						  "t1": 150,
+						  "i2": 300,
+						  "i2_flag": 1,
+						  "t2": 5,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						},
+						{
+						  "CB_ID": 2,
+					          "Line_ID": 2,
+						  "Bus_ID": 2,
+						  "Sel_Type": 1,
+						  "m": 3,
+						  "i1": 25,
+						  "t1": 30,
+						  "i2": 95,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						},
+						{
+						  "CB_ID": 3,
+					          "Line_ID": 3,
+						  "Bus_ID": 3,
+						  "Sel_Type": 1,
+						  "m": 3,
+						  "i1": 25,
+						  "t1": 30,
+						  "i2": 95,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						},
+						{
+						  "CB_ID": 5,
+					     	  "Line_ID": 5,
+						  "Bus_ID": 5,
+						  "Sel_Type": 1,
+						  "m": 3,
+						  "i1": 25,
+						  "t1": 30,
+						  "i2": 95,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						},
+						{
+						  "CB_ID": 6,
+					      	  "Line_ID": 6,
+						  "Bus_ID": 6,
+						  "Sel_Type": 1,
+						  "m": 3,
+						  "i1": 25,
+						  "t1": 30,
+						  "i2": 95,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						},
+						{
+						  "CB_ID": 4,
+					          "Line_ID": 4,
+						  "Bus_ID": 4,
+						  "Sel_Type": 1,
+						  "m": 3,
+						  "i1": 25,
+						  "t1": 30,
+						  "i2": 95,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+						}
+					]						
+				}
+}

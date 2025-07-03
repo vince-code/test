@@ -1,0 +1,2890 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+<declaration>
+broadcast chan L1_fault, L2_fault, L3_fault, L5_fault, L6_fault, L8_fault, L9_fault, L10_fault, L11_fault, L12_fault, L13_fault, L14_fault, L15_fault, L16_fault, L17_fault, L18_fault, L19_fault, L20_fault, L21_fault, L22_fault, L23_fault;
+broadcast chan LB1_fault, LB2_fault, LB3_fault, LB4_fault, LB5_fault, LB6_fault, LB8_fault, LB9_fault, LB10_fault, LB11_fault, LB12_fault, LB13_fault, LB14_fault, LB15_fault, LB16_fault, LB17_fault, LB18_fault, LB19_fault, LB20_fault, LB21_fault, LB22_fault, LB23_fault;
+broadcast chan CBopen, Faults, Reset, Fault_cleared, Close;
+int Iioc_1 = 20;
+int Iioc_2 = 17;
+int Iioc_3 = 17;
+int Iioc_5 = 54;
+int Iioc_6 = 20;
+int Iioc_8 = 308;
+int Iioc_9 = 20;
+int Iioc_10 = 20;
+int Iioc_11 = 20;
+int Iioc_12 = 40;
+int Iioc_13 = 60;
+int Iioc_14 = 20;
+int Iioc_15 = 17;
+int Iioc_16 = 17;
+int Iioc_17 = 54;
+int Iioc_18 = 20;
+int Iioc_19 = 20;
+int Iioc_20 = 20;
+int Iioc_21 = 20;
+int Iioc_22 = 20;
+int Iioc_23 = 20;
+int Ith_1 = 25;
+int Ith_2 = 25;
+int Ith_3 = 25;
+int Ith_5 = 63;
+int Ith_6 = 25;
+int Ith_8 = 350;
+int Ith_9 = 25;
+int Ith_10 = 25;
+int Ith_11 = 25;
+int Ith_12 = 50;
+int Ith_13 = 75;
+int Ith_14 = 25;
+int Ith_15 = 25;
+int Ith_16 = 25;
+int Ith_17 = 63;
+int Ith_18 = 25;
+int Ith_19 = 25;
+int Ith_20 = 25;
+int Ith_21 = 25;
+int Ith_22 = 25;
+int Ith_23 = 25;
+int Isc_8_1 = 5500;
+int Isc_8_2 = 5500;
+int Isc_8_3 = 5500;
+int Isc_8_5 = 7400;
+int Isc_8_6 = 7400;
+int Isc_8_8 = 0;
+int Isc_8_9 = 5500;
+int Isc_8_10 = 5500;
+int Isc_8_11 = 5500;
+int Isc_8_12 = 5500;
+int Isc_8_13 = 7400;
+int Isc_8_14 = 7400;
+int Isc_8_15 = 7400;
+int Isc_8_16 = 7400;
+int Isc_8_17 = 9500;
+int Isc_8_18 = 9500;
+int Isc_8_19 = 9500;
+int Isc_8_20 = 9500;
+int Isc_8_21 = 7400;
+int Isc_8_22 = 5500;
+int Isc_8_23 = 7400;
+int Iscb_8_1 = 5500;
+int Iscb_8_2 = 5500;
+int Iscb_8_3 = 5500;
+int Iscb_8_4 = 7400;
+int Iscb_8_5 = 9500;
+int Iscb_8_6 = 7400;
+int Iscb_8_8 = 0;
+int Iscb_8_9 = 5500;
+int Iscb_8_10 = 5500;
+int Iscb_8_11 = 5500;
+int Iscb_8_12 = 5500;
+int Iscb_8_13 = 7400;
+int Iscb_8_14 = 7400;
+int Iscb_8_15 = 7400;
+int Iscb_8_16 = 7400;
+int Iscb_8_17 = 9500;
+int Iscb_8_18 = 9500;
+int Iscb_8_19 = 9500;
+int Iscb_8_20 = 9500;
+int Iscb_8_21 = 7400;
+int Iscb_8_22 = 5500;
+int Iscb_8_23 = 7400;
+int Irc_1 = 20;
+int Irc_2 = 17;
+int Irc_3 = 17;
+int Irc_5 = 54;
+int Irc_6 = 20;
+int Irc_8 = 308;
+int Irc_9 = 20;
+int Irc_10 = 20;
+int Irc_11 = 20;
+int Irc_12 = 40;
+int Irc_13 = 60;
+int Irc_14 = 20;
+int Irc_15 = 17;
+int Irc_16 = 17;
+int Irc_17 = 54;
+int Irc_18 = 20;
+int Irc_19 = 20;
+int Irc_20 = 20;
+int Irc_21 = 20;
+int Irc_22 = 20;
+int Irc_23 = 20;
+bool F1 = false;
+bool F2 = false;
+bool F3 = false;
+bool F5 = false;
+bool F6 = false;
+bool F8 = false;
+bool F9 = false;
+bool F10 = false;
+bool F11 = false;
+bool F12 = false;
+bool F13 = false;
+bool F14 = false;
+bool F15 = false;
+bool F16 = false;
+bool F17 = false;
+bool F18 = false;
+bool F19 = false;
+bool F20 = false;
+bool F21 = false;
+bool F22 = false;
+bool F23 = false;
+bool FB1 = false;
+bool FB2 = false;
+bool FB3 = false;
+bool FB4 = false;
+bool FB5 = false;
+bool FB6 = false;
+bool FB8 = false;
+bool FB9 = false;
+bool FB10 = false;
+bool FB11 = false;
+bool FB12 = false;
+bool FB13 = false;
+bool FB14 = false;
+bool FB15 = false;
+bool FB16 = false;
+bool FB17 = false;
+bool FB18 = false;
+bool FB19 = false;
+bool FB20 = false;
+bool FB21 = false;
+bool FB22 = false;
+bool FB23 = false;
+int F;
+int FB;
+int C1 = 1;
+int C2 = 1;
+int C3 = 1;
+int C5 = 1;
+int C6 = 1;
+int C8 = 1;
+int C9 = 1;
+int C10 = 1;
+int C11 = 1;
+int C12 = 1;
+int C13 = 1;
+int C14 = 1;
+int C15 = 1;
+int C16 = 1;
+int C17 = 1;
+int C18 = 1;
+int C19 = 1;
+int C20 = 1;
+int C21 = 1;
+int C22 = 1;
+int C23 = 1;
+bool IsFWD_1 = true;
+bool IsFWD_2 = true;
+bool IsFWD_3 = true;
+bool IsFWD_5 = true;
+bool IsFWD_6 = true;
+bool IsFWD_8 = true;
+bool IsFWD_9 = true;
+bool IsFWD_10 = true;
+bool IsFWD_11 = true;
+bool IsFWD_12 = true;
+bool IsFWD_13 = true;
+bool IsFWD_14 = true;
+bool IsFWD_15 = true;
+bool IsFWD_16 = true;
+bool IsFWD_17 = true;
+bool IsFWD_18 = true;
+bool IsFWD_19 = true;
+bool IsFWD_20 = true;
+bool IsFWD_21 = true;
+bool IsFWD_22 = true;
+bool IsFWD_23 = true;
+bool Block_1 = false;
+bool Block_2 = false;
+bool Block_3 = false;
+bool Block_5 = false;
+bool Block_6 = false;
+bool Block_8 = false;
+bool Block_9 = false;
+bool Block_10 = false;
+bool Block_11 = false;
+bool Block_12 = false;
+bool Block_13 = false;
+bool Block_14 = false;
+bool Block_15 = false;
+bool Block_16 = false;
+bool Block_17 = false;
+bool Block_18 = false;
+bool Block_19 = false;
+bool Block_20 = false;
+bool Block_21 = false;
+bool Block_22 = false;
+bool Block_23 = false;
+void Isc(int L, int LB){
+  if (L==1){
+   F = 1;
+   Irc_8 = Isc_8_1;
+   Irc_2 = 0;
+   Irc_3 = 0;
+   Irc_6 = 0;
+   Irc_9 = 0;
+   Irc_10 = 0;
+   Irc_11 = 0;
+   Irc_12 = 0;
+   Irc_13 = 0;
+   Irc_14 = 0;
+   Irc_15 = 0;
+   Irc_16 = 0;
+   Irc_17 = 0;
+   Irc_18 = 0;
+   Irc_19 = 0;
+   Irc_20 = 0;
+   Irc_21 = 0;
+   Irc_22 = 0;
+   Irc_23 = 0;
+   Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_19 - Irc_20 - Irc_21 - Irc_22 - Irc_23;
+   Irc_1 = Irc_5 - Irc_3 - Irc_2;
+  }
+  else if (L==2){
+   F = 2;
+   Irc_8 = Isc_8_2;
+   Irc_1 = 0;
+   Irc_3 = 0;
+   Irc_6 = 0;
+   Irc_9 = 0;
+   Irc_10 = 0;
+   Irc_11 = 0;
+   Irc_12 = 0;
+   Irc_13 = 0;
+   Irc_14 = 0;
+   Irc_15 = 0;
+   Irc_16 = 0;
+   Irc_17 = 0;
+   Irc_18 = 0;
+   Irc_19 = 0;
+   Irc_20 = 0;
+   Irc_21 = 0;
+   Irc_22 = 0;
+   Irc_23 = 0;
+   Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_19 - Irc_20 - Irc_21 - Irc_22 - Irc_23;
+   Irc_2 = Irc_5 - Irc_3 - Irc_1;
+  }
+  else if (L==3){
+   F = 3;
+   Irc_8 = Isc_8_3;
+   Irc_1 = 0;
+   Irc_2 = 0;
+   Irc_6 = 0;
+   Irc_9 = 0;
+   Irc_10 = 0;
+   Irc_11 = 0;
+   Irc_12 = 0;
+   Irc_13 = 0;
+   Irc_14 = 0;
+   Irc_15 = 0;
+   Irc_16 = 0;
+   Irc_17 = 0;
+   Irc_18 = 0;
+   Irc_19 = 0;
+   Irc_20 = 0;
+   Irc_21 = 0;
+   Irc_22 = 0;
+   Irc_23 = 0;
+   Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_19 - Irc_20 - Irc_21 - Irc_22 - Irc_23;
+   Irc_3 = Irc_5 - Irc_2 - Irc_1;
+  }
+  else if (LB==1){
+   FB = 1;
+   Irc_8 = Iscb_8_1;
+   Irc_2 = 0;
+   Irc_3 = 0;
+   Irc_6 = 0;
+   Irc_9 = 0;
+   Irc_10 = 0;
+   Irc_11 = 0;
+   Irc_12 = 0;
+   Irc_13 = 0;
+   Irc_14 = 0;
+   Irc_15 = 0;
+   Irc_16 = 0;
+   Irc_17 = 0;
+   Irc_18 = 0;
+   Irc_19 = 0;
+   Irc_20 = 0;
+   Irc_21 = 0;
+   Irc_22 = 0;
+   Irc_23 = 0;
+   Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_19 - Irc_20 - Irc_21 - Irc_22 - Irc_23;
+   Irc_1 = Irc_5 - Irc_3 - Irc_2;
+  }
+  else if (LB==2){
+   FB = 2;
+   Irc_8 = Iscb_8_2;
+   Irc_1 = 0;
+   Irc_3 = 0;
+   Irc_6 = 0;
+   Irc_9 = 0;
+   Irc_10 = 0;
+   Irc_11 = 0;
+   Irc_12 = 0;
+   Irc_13 = 0;
+   Irc_14 = 0;
+   Irc_15 = 0;
+   Irc_16 = 0;
+   Irc_17 = 0;
+   Irc_18 = 0;
+   Irc_19 = 0;
+   Irc_20 = 0;
+   Irc_21 = 0;
+   Irc_22 = 0;
+   Irc_23 = 0;
+   Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_19 - Irc_20 - Irc_21 - Irc_22 - Irc_23;
+   Irc_2 = Irc_5 - Irc_3 - Irc_1;
+  }
+  else if (LB==3){
+   FB = 3;
+   Irc_8 = Iscb_8_3;
+   Irc_1 = 0;
+   Irc_2 = 0;
+   Irc_6 = 0;
+   Irc_9 = 0;
+   Irc_10 = 0;
+   Irc_11 = 0;
+   Irc_12 = 0;
+   Irc_13 = 0;
+   Irc_14 = 0;
+   Irc_15 = 0;
+   Irc_16 = 0;
+   Irc_17 = 0;
+   Irc_18 = 0;
+   Irc_19 = 0;
+   Irc_20 = 0;
+   Irc_21 = 0;
+   Irc_22 = 0;
+   Irc_23 = 0;
+   Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_19 - Irc_20 - Irc_21 - Irc_22 - Irc_23;
+   Irc_3 = Irc_5 - Irc_2 - Irc_1;
+  }
+}
+void update(int CB_ID){
+ if (F==1){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+   Irc_2 = 0;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+   Irc_3 = 0;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==6){
+   C6 = 0;
+   Irc_6 = 0;
+  }
+  else if (CB_ID==8){
+   C8 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==9){
+   C9 = 0;
+   Irc_9 = 0;
+  }
+  else if (CB_ID==10){
+   C10 = 0;
+   Irc_10 = 0;
+  }
+  else if (CB_ID==11){
+   C11 = 0;
+   Irc_11 = 0;
+  }
+  else if (CB_ID==12){
+   C12 = 0;
+   Irc_12 = 0;
+  }
+  else if (CB_ID==13){
+   C13 = 0;
+   Irc_13 = 0;
+  }
+  else if (CB_ID==14){
+   C14 = 0;
+   Irc_14 = 0;
+  }
+  else if (CB_ID==15){
+   C15 = 0;
+   Irc_15 = 0;
+  }
+  else if (CB_ID==16){
+   C16 = 0;
+   Irc_16 = 0;
+  }
+  else if (CB_ID==17){
+   C17 = 0;
+   Irc_17 = 0;
+  }
+  else if (CB_ID==18){
+   C18 = 0;
+   Irc_18 = 0;
+  }
+  else if (CB_ID==19){
+   C19 = 0;
+   Irc_19 = 0;
+  }
+  else if (CB_ID==20){
+   C20 = 0;
+   Irc_20 = 0;
+  }
+  else if (CB_ID==21){
+   C21 = 0;
+   Irc_21 = 0;
+  }
+  else if (CB_ID==22){
+   C22 = 0;
+   Irc_22 = 0;
+  }
+  else if (CB_ID==23){
+   C23 = 0;
+   Irc_23 = 0;
+  }
+ }
+ else if (F==2){
+  if (CB_ID==1){
+   C1 = 0;
+   Irc_1 = 0;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+   Irc_3 = 0;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==6){
+   C6 = 0;
+   Irc_6 = 0;
+  }
+  else if (CB_ID==8){
+   C8 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==9){
+   C9 = 0;
+   Irc_9 = 0;
+  }
+  else if (CB_ID==10){
+   C10 = 0;
+   Irc_10 = 0;
+  }
+  else if (CB_ID==11){
+   C11 = 0;
+   Irc_11 = 0;
+  }
+  else if (CB_ID==12){
+   C12 = 0;
+   Irc_12 = 0;
+  }
+  else if (CB_ID==13){
+   C13 = 0;
+   Irc_13 = 0;
+  }
+  else if (CB_ID==14){
+   C14 = 0;
+   Irc_14 = 0;
+  }
+  else if (CB_ID==15){
+   C15 = 0;
+   Irc_15 = 0;
+  }
+  else if (CB_ID==16){
+   C16 = 0;
+   Irc_16 = 0;
+  }
+  else if (CB_ID==17){
+   C17 = 0;
+   Irc_17 = 0;
+  }
+  else if (CB_ID==18){
+   C18 = 0;
+   Irc_18 = 0;
+  }
+  else if (CB_ID==19){
+   C19 = 0;
+   Irc_19 = 0;
+  }
+  else if (CB_ID==20){
+   C20 = 0;
+   Irc_20 = 0;
+  }
+  else if (CB_ID==21){
+   C21 = 0;
+   Irc_21 = 0;
+  }
+  else if (CB_ID==22){
+   C22 = 0;
+   Irc_22 = 0;
+  }
+  else if (CB_ID==23){
+   C23 = 0;
+   Irc_23 = 0;
+  }
+ }
+ else if (F==3){
+  if (CB_ID==1){
+   C1 = 0;
+   Irc_1 = 0;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+   Irc_2 = 0;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==6){
+   C6 = 0;
+   Irc_6 = 0;
+  }
+  else if (CB_ID==8){
+   C8 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==9){
+   C9 = 0;
+   Irc_9 = 0;
+  }
+  else if (CB_ID==10){
+   C10 = 0;
+   Irc_10 = 0;
+  }
+  else if (CB_ID==11){
+   C11 = 0;
+   Irc_11 = 0;
+  }
+  else if (CB_ID==12){
+   C12 = 0;
+   Irc_12 = 0;
+  }
+  else if (CB_ID==13){
+   C13 = 0;
+   Irc_13 = 0;
+  }
+  else if (CB_ID==14){
+   C14 = 0;
+   Irc_14 = 0;
+  }
+  else if (CB_ID==15){
+   C15 = 0;
+   Irc_15 = 0;
+  }
+  else if (CB_ID==16){
+   C16 = 0;
+   Irc_16 = 0;
+  }
+  else if (CB_ID==17){
+   C17 = 0;
+   Irc_17 = 0;
+  }
+  else if (CB_ID==18){
+   C18 = 0;
+   Irc_18 = 0;
+  }
+  else if (CB_ID==19){
+   C19 = 0;
+   Irc_19 = 0;
+  }
+  else if (CB_ID==20){
+   C20 = 0;
+   Irc_20 = 0;
+  }
+  else if (CB_ID==21){
+   C21 = 0;
+   Irc_21 = 0;
+  }
+  else if (CB_ID==22){
+   C22 = 0;
+   Irc_22 = 0;
+  }
+  else if (CB_ID==23){
+   C23 = 0;
+   Irc_23 = 0;
+  }
+ }
+ else if (FB==1){
+  if (CB_ID==1){
+   C1 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+   Irc_2 = 0;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+   Irc_3 = 0;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==6){
+   C6 = 0;
+   Irc_6 = 0;
+  }
+  else if (CB_ID==8){
+   C8 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==9){
+   C9 = 0;
+   Irc_9 = 0;
+  }
+  else if (CB_ID==10){
+   C10 = 0;
+   Irc_10 = 0;
+  }
+  else if (CB_ID==11){
+   C11 = 0;
+   Irc_11 = 0;
+  }
+  else if (CB_ID==12){
+   C12 = 0;
+   Irc_12 = 0;
+  }
+  else if (CB_ID==13){
+   C13 = 0;
+   Irc_13 = 0;
+  }
+  else if (CB_ID==14){
+   C14 = 0;
+   Irc_14 = 0;
+  }
+  else if (CB_ID==15){
+   C15 = 0;
+   Irc_15 = 0;
+  }
+  else if (CB_ID==16){
+   C16 = 0;
+   Irc_16 = 0;
+  }
+  else if (CB_ID==17){
+   C17 = 0;
+   Irc_17 = 0;
+  }
+  else if (CB_ID==18){
+   C18 = 0;
+   Irc_18 = 0;
+  }
+  else if (CB_ID==19){
+   C19 = 0;
+   Irc_19 = 0;
+  }
+  else if (CB_ID==20){
+   C20 = 0;
+   Irc_20 = 0;
+  }
+  else if (CB_ID==21){
+   C21 = 0;
+   Irc_21 = 0;
+  }
+  else if (CB_ID==22){
+   C22 = 0;
+   Irc_22 = 0;
+  }
+  else if (CB_ID==23){
+   C23 = 0;
+   Irc_23 = 0;
+  }
+ }
+ else if (FB==2){
+  if (CB_ID==1){
+   C1 = 0;
+   Irc_1 = 0;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+   Irc_3 = 0;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==6){
+   C6 = 0;
+   Irc_6 = 0;
+  }
+  else if (CB_ID==8){
+   C8 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==9){
+   C9 = 0;
+   Irc_9 = 0;
+  }
+  else if (CB_ID==10){
+   C10 = 0;
+   Irc_10 = 0;
+  }
+  else if (CB_ID==11){
+   C11 = 0;
+   Irc_11 = 0;
+  }
+  else if (CB_ID==12){
+   C12 = 0;
+   Irc_12 = 0;
+  }
+  else if (CB_ID==13){
+   C13 = 0;
+   Irc_13 = 0;
+  }
+  else if (CB_ID==14){
+   C14 = 0;
+   Irc_14 = 0;
+  }
+  else if (CB_ID==15){
+   C15 = 0;
+   Irc_15 = 0;
+  }
+  else if (CB_ID==16){
+   C16 = 0;
+   Irc_16 = 0;
+  }
+  else if (CB_ID==17){
+   C17 = 0;
+   Irc_17 = 0;
+  }
+  else if (CB_ID==18){
+   C18 = 0;
+   Irc_18 = 0;
+  }
+  else if (CB_ID==19){
+   C19 = 0;
+   Irc_19 = 0;
+  }
+  else if (CB_ID==20){
+   C20 = 0;
+   Irc_20 = 0;
+  }
+  else if (CB_ID==21){
+   C21 = 0;
+   Irc_21 = 0;
+  }
+  else if (CB_ID==22){
+   C22 = 0;
+   Irc_22 = 0;
+  }
+  else if (CB_ID==23){
+   C23 = 0;
+   Irc_23 = 0;
+  }
+ }
+ else if (FB==3){
+  if (CB_ID==1){
+   C1 = 0;
+   Irc_1 = 0;
+  }
+  else if (CB_ID==2){
+   C2 = 0;
+   Irc_2 = 0;
+  }
+  else if (CB_ID==3){
+   C3 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==5){
+   C5 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==6){
+   C6 = 0;
+   Irc_6 = 0;
+  }
+  else if (CB_ID==8){
+   C8 = 0;
+  Irc_1 = 0;
+  Irc_2 = 0;
+  Irc_3 = 0;
+  Irc_5 = 0;
+  Irc_6 = 0;
+  Irc_8 = 0;
+  Irc_9 = 0;
+  Irc_10 = 0;
+  Irc_11 = 0;
+  Irc_12 = 0;
+  Irc_13 = 0;
+  Irc_14 = 0;
+  Irc_15 = 0;
+  Irc_16 = 0;
+  Irc_17 = 0;
+  Irc_18 = 0;
+  Irc_19 = 0;
+  Irc_20 = 0;
+  Irc_21 = 0;
+  Irc_22 = 0;
+  Irc_23 = 0;
+  }
+  else if (CB_ID==9){
+   C9 = 0;
+   Irc_9 = 0;
+  }
+  else if (CB_ID==10){
+   C10 = 0;
+   Irc_10 = 0;
+  }
+  else if (CB_ID==11){
+   C11 = 0;
+   Irc_11 = 0;
+  }
+  else if (CB_ID==12){
+   C12 = 0;
+   Irc_12 = 0;
+  }
+  else if (CB_ID==13){
+   C13 = 0;
+   Irc_13 = 0;
+  }
+  else if (CB_ID==14){
+   C14 = 0;
+   Irc_14 = 0;
+  }
+  else if (CB_ID==15){
+   C15 = 0;
+   Irc_15 = 0;
+  }
+  else if (CB_ID==16){
+   C16 = 0;
+   Irc_16 = 0;
+  }
+  else if (CB_ID==17){
+   C17 = 0;
+   Irc_17 = 0;
+  }
+  else if (CB_ID==18){
+   C18 = 0;
+   Irc_18 = 0;
+  }
+  else if (CB_ID==19){
+   C19 = 0;
+   Irc_19 = 0;
+  }
+  else if (CB_ID==20){
+   C20 = 0;
+   Irc_20 = 0;
+  }
+  else if (CB_ID==21){
+   C21 = 0;
+   Irc_21 = 0;
+  }
+  else if (CB_ID==22){
+   C22 = 0;
+   Irc_22 = 0;
+  }
+  else if (CB_ID==23){
+   C23 = 0;
+   Irc_23 = 0;
+  }
+ }
+}
+void clear (){
+  Irc_1 = Iioc_1;
+  Irc_2 = Iioc_2;
+  Irc_3 = Iioc_3;
+  Irc_5 = Iioc_5;
+  Irc_6 = Iioc_6;
+  Irc_8 = Iioc_8;
+  Irc_9 = Iioc_9;
+  Irc_10 = Iioc_10;
+  Irc_11 = Iioc_11;
+  Irc_12 = Iioc_12;
+  Irc_13 = Iioc_13;
+  Irc_14 = Iioc_14;
+  Irc_15 = Iioc_15;
+  Irc_16 = Iioc_16;
+  Irc_17 = Iioc_17;
+  Irc_18 = Iioc_18;
+  Irc_19 = Iioc_19;
+  Irc_20 = Iioc_20;
+  Irc_21 = Iioc_21;
+  Irc_22 = Iioc_22;
+  Irc_23 = Iioc_23;
+  IsFWD_1 = true;
+  IsFWD_2 = true;
+  IsFWD_3 = true;
+  IsFWD_5 = true;
+  IsFWD_6 = true;
+  IsFWD_8 = true;
+  IsFWD_9 = true;
+  IsFWD_10 = true;
+  IsFWD_11 = true;
+  IsFWD_12 = true;
+  IsFWD_13 = true;
+  IsFWD_14 = true;
+  IsFWD_15 = true;
+  IsFWD_16 = true;
+  IsFWD_17 = true;
+  IsFWD_18 = true;
+  IsFWD_19 = true;
+  IsFWD_20 = true;
+  IsFWD_21 = true;
+  IsFWD_22 = true;
+  IsFWD_23 = true;
+  Block_1 = false;
+  Block_2 = false;
+  Block_3 = false;
+  Block_5 = false;
+  Block_6 = false;
+  Block_8 = false;
+  Block_9 = false;
+  Block_10 = false;
+  Block_11 = false;
+  Block_12 = false;
+  Block_13 = false;
+  Block_14 = false;
+  Block_15 = false;
+  Block_16 = false;
+  Block_17 = false;
+  Block_18 = false;
+  Block_19 = false;
+  Block_20 = false;
+  Block_21 = false;
+  Block_22 = false;
+  Block_23 = false;
+}
+</declaration>
+<template>
+  <name>Fault_Generator</name>
+  <location id="id0" x="-306" y="-127">
+    <name x="-357" y="-161">No_Fault</name>
+  </location>
+  <location id="id1" x="263" y="-127">
+    <name x="253" y="-161">Fault_Signal</name>
+    <committed/>
+  </location>
+  <location id="id2" x="-306" y="221">
+    <name x="-349" y="238">Reset_Ready</name>
+  </location>
+  <location id="id3" x="272" y="221">
+    <name x="238" y="238">Check_Fault</name>
+    <committed/>
+  </location>
+  <location id="id4" x="476" y="25">
+    <name x="466" y="-9">Fault</name>
+  </location>
+  <init ref="id0"/>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id2"/>
+      <label kind="guard">Irc_1&lt;Ith_1 &amp;&amp; Irc_2&lt;Ith_2 &amp;&amp; Irc_3&lt;Ith_3 &amp;&amp; Irc_5&lt;Ith_5 &amp;&amp; Irc_6&lt;Ith_6 &amp;&amp; Irc_8&lt;Ith_8 &amp;&amp; Irc_9&lt;Ith_9 &amp;&amp; Irc_10&lt;Ith_10 &amp;&amp; Irc_11&lt;Ith_11 &amp;&amp; Irc_12&lt;Ith_12 &amp;&amp; Irc_13&lt;Ith_13 &amp;&amp; Irc_14&lt;Ith_14 &amp;&amp; Irc_15&lt;Ith_15 &amp;&amp; Irc_16&lt;Ith_16 &amp;&amp; Irc_17&lt;Ith_17 &amp;&amp; Irc_18&lt;Ith_18 &amp;&amp; Irc_19&lt;Ith_19 &amp;&amp; Irc_20&lt;Ith_20 &amp;&amp; Irc_21&lt;Ith_21 &amp;&amp; Irc_22&lt;Ith_22 &amp;&amp; Irc_23&lt;Ith_23</label>
+      <label kind="synchronisation">Fault_cleared!</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id3"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_1&gt;=Ith_1 or Irc_2&gt;=Ith_2 or Irc_3&gt;=Ith_3 or Irc_5&gt;=Ith_5 or Irc_6&gt;=Ith_6 or Irc_8&gt;=Ith_8 or Irc_9&gt;=Ith_9 or Irc_10&gt;=Ith_10 or Irc_11&gt;=Ith_11 or Irc_12&gt;=Ith_12 or Irc_13&gt;=Ith_13 or Irc_14&gt;=Ith_14 or Irc_15&gt;=Ith_15 or Irc_16&gt;=Ith_16 or Irc_17&gt;=Ith_17 or Irc_18&gt;=Ith_18 or Irc_19&gt;=Ith_19 or Irc_20&gt;=Ith_20 or Irc_21&gt;=Ith_21 or Irc_22&gt;=Ith_22 or Irc_23&gt;=Ith_23</label>
+      <label kind="synchronisation">Close!</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id3"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">CBopen?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Faults!</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard">Irc_1!=0</label>
+      <label kind="synchronisation">L1_fault!</label>
+      <label kind="assignment">Isc(1,0), F1=true</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard">Irc_2!=0</label>
+      <label kind="synchronisation">L2_fault!</label>
+      <label kind="assignment">Isc(2,0), F2=true</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard">Irc_3!=0</label>
+      <label kind="synchronisation">L3_fault!</label>
+      <label kind="assignment">Isc(3,0), F3=true</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">LB1_fault!</label>
+      <label kind="assignment">Isc(0,1), FB1=true</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">LB2_fault!</label>
+      <label kind="assignment">Isc(0,2), FB2=true</label>
+    </transition>
+    <transition>
+      <source ref="id0"/>
+      <target ref="id1"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">LB3_fault!</label>
+      <label kind="assignment">Isc(0,3), FB3=true</label>
+    </transition>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id0"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset!</label>
+      <label kind="assignment">F=0, FB=0, F1=false, F2=false, F3=false, FB1=false, FB2=false, FB3=false</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_1</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_1&gt;Ith_1</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_1)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_1&lt;Ith_1</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_1&lt;Ith_1</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C1=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_1&gt;=Ith_1</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(1)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_2</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_2&gt;Ith_2</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_2)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_2&lt;Ith_2</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_2&lt;Ith_2</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C2=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_2&gt;=Ith_2</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(2)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_3</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 9;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_3&gt;Ith_3</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_3)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_3&lt;Ith_3</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_3&lt;Ith_3</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C3=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_3&gt;=Ith_3</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(3)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_5</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 63;
+  int t1 = 120;
+  int i2 = 150;
+  int t2 = 4;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_5&gt;Ith_5</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_5)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_5&lt;Ith_5</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_5&lt;Ith_5</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C5=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_5&gt;=Ith_5</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(5)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_6</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_6&gt;Ith_6</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_6)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_6&lt;Ith_6</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_6&lt;Ith_6</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C6=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_6&gt;=Ith_6</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(6)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_8</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 350;
+  int t1 = 150;
+  int i2 = 450;
+  int t2 = 8;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_8&gt;Ith_8</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_8)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_8&lt;Ith_8</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_8&lt;Ith_8</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C8=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_8&gt;=Ith_8</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(8)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_9</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_9&gt;Ith_9</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_9)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_9&lt;Ith_9</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_9&lt;Ith_9</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C9=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_9&gt;=Ith_9</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(9)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_10</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_10&gt;Ith_10</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_10)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_10&lt;Ith_10</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_10&lt;Ith_10</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C10=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_10&gt;=Ith_10</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(10)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_11</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_11&gt;Ith_11</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_11)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_11&lt;Ith_11</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_11&lt;Ith_11</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C11=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_11&gt;=Ith_11</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(11)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_12</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 50;
+  int t1 = 60;
+  int i2 = 120;
+  int t2 = 4;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_12&gt;Ith_12</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_12)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_12&lt;Ith_12</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_12&lt;Ith_12</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C12=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_12&gt;=Ith_12</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(12)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_13</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 75;
+  int t1 = 120;
+  int i2 = 150;
+  int t2 = 6;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_13&gt;Ith_13</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_13)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_13&lt;Ith_13</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_13&lt;Ith_13</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C13=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_13&gt;=Ith_13</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(13)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_14</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_14&gt;Ith_14</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_14)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_14&lt;Ith_14</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_14&lt;Ith_14</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C14=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_14&gt;=Ith_14</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(14)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_15</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_15&gt;Ith_15</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_15)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_15&lt;Ith_15</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_15&lt;Ith_15</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C15=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_15&gt;=Ith_15</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(15)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_16</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_16&gt;Ith_16</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_16)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_16&lt;Ith_16</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_16&lt;Ith_16</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C16=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_16&gt;=Ith_16</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(16)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_17</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 63;
+  int t1 = 120;
+  int i2 = 150;
+  int t2 = 4;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_17&gt;Ith_17</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_17)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_17&lt;Ith_17</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_17&lt;Ith_17</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C17=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_17&gt;=Ith_17</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(17)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_18</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_18&gt;Ith_18</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_18)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_18&lt;Ith_18</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_18&lt;Ith_18</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C18=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_18&gt;=Ith_18</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(18)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_19</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_19&gt;Ith_19</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_19)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_19&lt;Ith_19</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_19&lt;Ith_19</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C19=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_19&gt;=Ith_19</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(19)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_20</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_20&gt;Ith_20</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_20)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_20&lt;Ith_20</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_20&lt;Ith_20</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C20=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_20&gt;=Ith_20</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(20)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_21</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 30;
+  int i2 = 95;
+  int t2 = 2;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_21&gt;Ith_21</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_21)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_21&lt;Ith_21</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_21&lt;Ith_21</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C21=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_21&gt;=Ith_21</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(21)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_22</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 60;
+  int i2 = 170;
+  int t2 = 4;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_22&gt;Ith_22</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_22)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_22&lt;Ith_22</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_22&lt;Ith_22</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C22=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_22&gt;=Ith_22</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(22)</label>
+    </transition>
+</template>
+<template>
+  <name>Circuit_Breaker_23</name>
+  <declaration>
+  clock x;
+  int t;
+  int m = 3;
+  int i1 = 25;
+  int t1 = 120;
+  int i2 = 150;
+  int t2 = 6;
+  void triptime(int I) {
+   if(I&lt;i1){
+    t = 9999;
+   }
+   else if(I&gt;=i1 &amp;&amp; I&lt;i2){
+    t = (m*i1*m*i1*t1)/(I*I);
+   }
+   else if(I&gt;=i2){
+    t = t2;
+   }
+  }
+  </declaration>
+  <location id="id4" x="-364" y="-68">
+    <name x="-382" y="-102">Closed</name>
+  </location>
+  <location id="id5" x="-119" y="-200">
+    <name x="-144" y="-234">Standby</name>
+    <label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+  </location>
+  <location id="id6" x="119" y="-68">
+    <name x="109" y="-102">Open</name>
+  </location>
+  <init ref="id4"/>
+    <transition>
+      <source ref="id4"/>
+      <target ref="id5"/>
+      <label kind="guard">Irc_23&gt;Ith_23</label>
+      <label kind="synchronisation">Faults?</label>
+      <label kind="assignment">x=0,triptime(Irc_23)</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_23&lt;Ith_23</label>
+      <label kind="synchronisation">Fault_cleared?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id4"/>
+      <label kind="guard">Irc_23&lt;Ith_23</label>
+      <label kind="synchronisation">Close?</label>
+      <label kind="assignment"></label>
+    </transition>
+    <transition>
+      <source ref="id6"/>
+      <target ref="id4"/>
+      <label kind="guard"></label>
+      <label kind="synchronisation">Reset?</label>
+      <label kind="assignment">clear(), C23=1</label>
+    </transition>
+    <transition>
+      <source ref="id5"/>
+      <target ref="id6"/>
+      <label kind="guard">x==t &amp;&amp; Irc_23&gt;=Ith_23</label>
+      <label kind="synchronisation">CBopen!</label>
+      <label kind="assignment">update(23)</label>
+    </transition>
+</template>
+<system>
+FG = Fault_Generator();
+CB1 = Circuit_Breaker_1();
+CB2 = Circuit_Breaker_2();
+CB3 = Circuit_Breaker_3();
+CB5 = Circuit_Breaker_5();
+CB6 = Circuit_Breaker_6();
+CB8 = Circuit_Breaker_8();
+CB9 = Circuit_Breaker_9();
+CB10 = Circuit_Breaker_10();
+CB11 = Circuit_Breaker_11();
+CB12 = Circuit_Breaker_12();
+CB13 = Circuit_Breaker_13();
+CB14 = Circuit_Breaker_14();
+CB15 = Circuit_Breaker_15();
+CB16 = Circuit_Breaker_16();
+CB17 = Circuit_Breaker_17();
+CB18 = Circuit_Breaker_18();
+CB19 = Circuit_Breaker_19();
+CB20 = Circuit_Breaker_20();
+CB21 = Circuit_Breaker_21();
+CB22 = Circuit_Breaker_22();
+CB23 = Circuit_Breaker_23();
+system FG, CB1, CB2, CB3, CB5, CB6, CB8, CB9, CB10, CB11, CB12, CB13, CB14, CB15, CB16, CB17, CB18, CB19, CB20, CB21, CB22, CB23;
+</system>
+<queries>
+  <query>
+    <formula>E&lt;&gt;((!CB1.Open &amp;&amp; CB5.Open &amp;&amp; F1)||(!CB1.Open &amp;&amp; CB8.Open &amp;&amp; F1)||(!CB2.Open &amp;&amp; CB5.Open &amp;&amp; F2)||(!CB2.Open &amp;&amp; CB8.Open &amp;&amp; F2)||(!CB1.Open &amp;&amp; CB5.Open &amp;&amp; FB1)||(!CB1.Open &amp;&amp; CB8.Open &amp;&amp; FB1)||(!CB2.Open &amp;&amp; CB5.Open &amp;&amp; FB2)||(!CB2.Open &amp;&amp; CB8.Open &amp;&amp; FB2))</formula>
+    <comment></comment>
+  </query>
+</queries>
+</nta>

@@ -1,0 +1,129 @@
+{
+ "Network": {
+				"Line":{
+					   "_ArrayType_": "single",
+					   "_ArraySize_": [1,6],
+					   "_ArrayData_": [1,2,3,4,5,6]
+				},
+				"Bus":{
+					  "_ArrayType_": "single",
+					  "_ArraySize_": [1,5],
+					  "_ArrayData_": [1,2,3,4,5]
+				},
+				"FaultLine":{
+							"_ArrayType_": "single",
+							"_ArraySize_": [1,2],
+						    "_ArrayData_": [1,2]
+				},
+				"FaultBus":{
+						   "_ArrayType_": "single",
+					       "_ArraySize_": [1,1],
+						   "_ArrayData_": [3]
+				},
+				"Line1":{
+					   "IncidentBus": 1,
+					   "OutgoingBus": 3,
+					   "Iioc": 200,
+					   "Ith": 201,
+					   "Isc": 5500
+				},
+				"Line2":{
+					   "IncidentBus": 2,
+					   "OutgoingBus": 3,
+					   "Iioc": 100,
+					   "Ith": 101,
+					   "Isc": 5500
+				},
+				"Line3":{
+					   "IncidentBus": 3,
+					   "OutgoingBus": 4,
+					   "Iioc": 100,
+					   "Ith": 116,
+					   "Isc": 7400
+				},
+				"Line4":{
+					   "IncidentBus": 3,
+					   "OutgoingBus": 4,
+					   "Iioc": 100,
+					   "Ith": 116,
+					   "Isc": 7400
+				},
+				"Line5":{
+					   "IncidentBus": 3,
+					   "OutgoingBus": 4,
+					   "Iioc": 100,
+					   "Ith": 116,
+					   "Isc": 7400
+				},
+				"Line6":{
+					   "IncidentBus": 4,
+					   "OutgoingBus": 5,
+					   "Iioc": 300,
+					   "Ith": 350,
+					   "Isc": 9500
+				}
+			},
+			
+ "CB_settings": {
+					"CB1":{
+						  "m": 3,
+						  "i1": 200,
+						  "t1": 30,
+						  "i2": 750,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+					},
+					"CB2":{
+						  "m": 3,
+						  "i1": 100,
+						  "t1": 30,
+						  "i2": 375,
+						  "i2_flag": 1,
+						  "t2": 2,
+						  "i3": "Nan",
+						  "i3_flag": 0
+					},
+					"CB3":{
+						  "m": 3,
+						  "i1": 116,
+						  "t1": 120,
+						  "i2": 1000,
+						  "i2_flag": 1,
+						  "t2": 4,
+						  "i3": "Nan",
+						  "i3_flag": 0
+					},
+					"CB4":{
+						  "m": 3,
+						  "i1": 116,
+						  "t1": 120,
+						  "i2": 1000,
+						  "i2_flag": 1,
+						  "t2": 4,
+						  "i3": "Nan",
+						  "i3_flag": 0
+					},
+					"CB5":{
+						  "m": 3,
+						  "i1": 116,
+						  "t1": 120,
+						  "i2": 1000,
+						  "i2_flag": 1,
+						  "t2": 4,
+						  "i3": "Nan",
+						  "i3_flag": 0
+					},
+					"CB6":{
+						  "m": 3,
+						  "i1": 350,
+						  "t1": 150,
+						  "i2": 1400,
+						  "i2_flag": 1,
+						  "t2": 6,
+						  "i3": "Nan",
+						  "i3_flag": 0
+					}				
+				}
+}

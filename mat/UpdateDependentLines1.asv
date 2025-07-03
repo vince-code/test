@@ -1,0 +1,22 @@
+function [] = UpdateDependentLines1(KCL_rows2,multSrx_rows2,OrderedKCLrows,A,Irc,C)
+
+for jj = 1:length(OrderedKCLrows)
+    if ismember(OrderedKCLrows(jj),KCL_rows2)
+        load_idx = A(OrderedKCLrows(jj),:)==-1;
+        RHS(jj) = load_idx*Irc;
+        src_idx = A(OrderedKCLrows(jj),:)==1;
+        LHS(jj) = src_idx*Irc;
+        fprintf(fileID,'   %s = %s;\n',LHS(jj),RHS(jj));
+    elseif ismember(OrderedKCLrows(jj),multSrx_rows2)
+        load_idx = A(OrderedKCLrows(jj),:)==-1;
+        RHS(OrderedKCLrows(jj)) = load_idx*Irc;
+        src_idx = find(A(OrderedKCLrows(jj),:)==1);
+        n = sum(C(src_idx));
+        fprintf(fileID,'   n = %s;\n',n);
+        for kk = 1:length(src_idx) % this "for loop" divides the sum of the outgoing current among all the incoming currents
+            fprintf(fileID,'   %s = %s * (%s /n);\n',Irc(src_idx(kk)),C(src_idx(kk)),RHS(OrderedKCLrows(jj)));
+        end
+    end
+end
+
+end

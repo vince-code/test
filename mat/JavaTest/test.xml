@@ -1,0 +1,8846 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>
+broadcast chan L1_fault, L2_fault, L3_fault, L5_fault, L6_fault, L8_fault, L9_fault, L10_fault, L11_fault, L12_fault, L13_fault, L14_fault, L15_fault, L16_fault, L17_fault, L18_fault, L19_fault, L20_fault, L21_fault, L22_fault, L23_fault;
+broadcast chan LB1_fault, LB2_fault, LB3_fault, LB4_fault, LB5_fault, LB6_fault, LB8_fault, LB9_fault, LB10_fault, LB11_fault, LB12_fault, LB13_fault, LB14_fault, LB15_fault, LB16_fault, LB17_fault, LB18_fault, LB19_fault, LB20_fault, LB21_fault, LB22_fault, LB23_fault;
+broadcast chan CBopen, Faults, Reset, Fault_cleared, Close;
+
+int Iioc_1 = 20;
+int Iioc_2 = 17;
+int Iioc_3 = 17;
+int Iioc_5 = 54;
+int Iioc_6 = 20;
+int Iioc_8 = 268;
+int Iioc_9 = 20;
+int Iioc_10 = 20;
+int Iioc_11 = 20;
+int Iioc_12 = 40;
+int Iioc_13 = 60;
+int Iioc_14 = 20;
+int Iioc_15 = 17;
+int Iioc_16 = 17;
+int Iioc_17 = 54;
+int Iioc_18 = 20;
+int Iioc_19 = 20;
+int Iioc_20 = 20;
+int Iioc_21 = 20;
+int Iioc_22 = 40;
+int Iioc_23 = 60;
+
+int Ith_1 = 25;
+int Ith_2 = 25;
+int Ith_3 = 25;
+int Ith_5 = 63;
+int Ith_6 = 25;
+int Ith_8 = 300;
+int Ith_9 = 25;
+int Ith_10 = 25;
+int Ith_11 = 25;
+int Ith_12 = 50;
+int Ith_13 = 75;
+int Ith_14 = 25;
+int Ith_15 = 25;
+int Ith_16 = 25;
+int Ith_17 = 63;
+int Ith_18 = 25;
+int Ith_19 = 25;
+int Ith_20 = 25;
+int Ith_21 = 25;
+int Ith_22 = 50;
+int Ith_23 = 75;
+
+int Isc_8_1 = 5500;
+int Isc_8_2 = 5500;
+int Isc_8_3 = 5500;
+int Isc_8_5 = 7400;
+int Isc_8_6 = 7400;
+int Isc_8_8 = 0;
+int Isc_8_9 = 5500;
+int Isc_8_10 = 5500;
+int Isc_8_11 = 5500;
+int Isc_8_12 = 5500;
+int Isc_8_13 = 7400;
+int Isc_8_14 = 7400;
+int Isc_8_15 = 7400;
+int Isc_8_16 = 7400;
+int Isc_8_17 = 9500;
+int Isc_8_18 = 9500;
+int Isc_8_19 = 9500;
+int Isc_8_20 = 9500;
+int Isc_8_21 = 7400;
+int Isc_8_22 = 5500;
+int Isc_8_23 = 7400;
+
+int Iscb_8_1 = 5500;
+int Iscb_8_2 = 5500;
+int Iscb_8_3 = 5500;
+int Iscb_8_4 = 7400;
+int Iscb_8_5 = 9500;
+int Iscb_8_6 = 7400;
+int Iscb_8_8 = 0;
+int Iscb_8_9 = 5500;
+int Iscb_8_10 = 5500;
+int Iscb_8_11 = 5500;
+int Iscb_8_12 = 5500;
+int Iscb_8_13 = 7400;
+int Iscb_8_14 = 7400;
+int Iscb_8_15 = 7400;
+int Iscb_8_16 = 7400;
+int Iscb_8_17 = 9500;
+int Iscb_8_18 = 9500;
+int Iscb_8_19 = 9500;
+int Iscb_8_20 = 9500;
+int Iscb_8_21 = 7400;
+int Iscb_8_22 = 5500;
+int Iscb_8_23 = 7400;
+
+int Irc_1 = 20;
+int Irc_2 = 17;
+int Irc_3 = 17;
+int Irc_5 = 54;
+int Irc_6 = 20;
+int Irc_8 = 268;
+int Irc_9 = 20;
+int Irc_10 = 20;
+int Irc_11 = 20;
+int Irc_12 = 40;
+int Irc_13 = 60;
+int Irc_14 = 20;
+int Irc_15 = 17;
+int Irc_16 = 17;
+int Irc_17 = 54;
+int Irc_18 = 20;
+int Irc_19 = 20;
+int Irc_20 = 20;
+int Irc_21 = 20;
+int Irc_22 = 40;
+int Irc_23 = 60;
+
+bool F1 = false;
+bool F2 = false;
+bool F3 = false;
+bool F5 = false;
+bool F6 = false;
+bool F8 = false;
+bool F9 = false;
+bool F10 = false;
+bool F11 = false;
+bool F12 = false;
+bool F13 = false;
+bool F14 = false;
+bool F15 = false;
+bool F16 = false;
+bool F17 = false;
+bool F18 = false;
+bool F19 = false;
+bool F20 = false;
+bool F21 = false;
+bool F22 = false;
+bool F23 = false;
+
+bool FB1 = false;
+bool FB2 = false;
+bool FB3 = false;
+bool FB4 = false;
+bool FB5 = false;
+bool FB6 = false;
+bool FB8 = false;
+bool FB9 = false;
+bool FB10 = false;
+bool FB11 = false;
+bool FB12 = false;
+bool FB13 = false;
+bool FB14 = false;
+bool FB15 = false;
+bool FB16 = false;
+bool FB17 = false;
+bool FB18 = false;
+bool FB19 = false;
+bool FB20 = false;
+bool FB21 = false;
+bool FB22 = false;
+bool FB23 = false;
+
+int F;
+int FB;
+
+int C1 = 1;
+int C2 = 1;
+int C3 = 1;
+int C5 = 1;
+int C6 = 1;
+int C8 = 1;
+int C9 = 1;
+int C10 = 1;
+int C11 = 1;
+int C12 = 1;
+int C13 = 1;
+int C14 = 1;
+int C15 = 1;
+int C16 = 1;
+int C17 = 1;
+int C18 = 1;
+int C19 = 1;
+int C20 = 1;
+int C21 = 1;
+int C22 = 1;
+int C23 = 1;
+
+bool IsFWD_1 = true;
+bool IsFWD_2 = true;
+bool IsFWD_3 = true;
+bool IsFWD_5 = true;
+bool IsFWD_6 = true;
+bool IsFWD_8 = true;
+bool IsFWD_9 = true;
+bool IsFWD_10 = true;
+bool IsFWD_11 = true;
+bool IsFWD_12 = true;
+bool IsFWD_13 = true;
+bool IsFWD_14 = true;
+bool IsFWD_15 = true;
+bool IsFWD_16 = true;
+bool IsFWD_17 = true;
+bool IsFWD_18 = true;
+bool IsFWD_19 = true;
+bool IsFWD_20 = true;
+bool IsFWD_21 = true;
+bool IsFWD_22 = true;
+bool IsFWD_23 = true;
+
+bool Block_1 = false;
+bool Block_2 = false;
+bool Block_3 = false;
+bool Block_5 = false;
+bool Block_6 = false;
+bool Block_8 = false;
+bool Block_9 = false;
+bool Block_10 = false;
+bool Block_11 = false;
+bool Block_12 = false;
+bool Block_13 = false;
+bool Block_14 = false;
+bool Block_15 = false;
+bool Block_16 = false;
+bool Block_17 = false;
+bool Block_18 = false;
+bool Block_19 = false;
+bool Block_20 = false;
+bool Block_21 = false;
+bool Block_22 = false;
+bool Block_23 = false;
+
+void Isc(int L, int LB){
+	if (L==1){
+		F = 1;
+		Irc_8 = Isc_8_1;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+		Irc_1 = Irc_5 - Irc_2 - Irc_3;
+	}
+	else if (L==2){
+		F = 2;
+		Irc_8 = Isc_8_2;
+		Irc_1 = 0;
+		Irc_3 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+		Irc_2 = Irc_5 - Irc_1 - Irc_3;
+	}
+	else if (L==3){
+		F = 3;
+		Irc_8 = Isc_8_3;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+		Irc_3 = Irc_5 - Irc_1 - Irc_2;
+	}
+	else if (L==5){
+		F = 5;
+		Irc_8 = Isc_8_5;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+	}
+	else if (L==6){
+		F = 6;
+		Irc_8 = Isc_8_6;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_6 = Irc_8 - Irc_5 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+	}
+	else if (L==9){
+		F = 9;
+		Irc_8 = Isc_8_9;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_12 = Irc_13 - Irc_11;
+		Irc_9 = Irc_12 - Irc_10;
+	}
+	else if (L==10){
+		F = 10;
+		Irc_8 = Isc_8_10;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_11 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_12 = Irc_13 - Irc_11;
+		Irc_10 = Irc_12 - Irc_9;
+	}
+	else if (L==11){
+		F = 11;
+		Irc_8 = Isc_8_11;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_12 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_11 = Irc_13 - Irc_12;
+	}
+	else if (L==12){
+		F = 12;
+		Irc_8 = Isc_8_12;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_12 = Irc_13 - Irc_11;
+	}
+	else if (L==13){
+		F = 13;
+		Irc_8 = Isc_8_13;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+	}
+	else if (L==14){
+		F = 14;
+		Irc_8 = Isc_8_14;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+		Irc_14 = Irc_17 - Irc_15 - Irc_16;
+	}
+	else if (L==15){
+		F = 15;
+		Irc_8 = Isc_8_15;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_16 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+		Irc_15 = Irc_17 - Irc_14 - Irc_16;
+	}
+	else if (L==16){
+		F = 16;
+		Irc_8 = Isc_8_16;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+		Irc_16 = Irc_17 - Irc_14 - Irc_15;
+	}
+	else if (L==17){
+		F = 17;
+		Irc_8 = Isc_8_17;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+	}
+	else if (L==18){
+		F = 18;
+		Irc_8 = Isc_8_18;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_18 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_23;
+	}
+	else if (L==19){
+		F = 19;
+		Irc_8 = Isc_8_19;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_22 = Irc_23 - Irc_21;
+		Irc_19 = Irc_22 - Irc_20;
+	}
+	else if (L==20){
+		F = 20;
+		Irc_8 = Isc_8_20;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_21 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_22 = Irc_23 - Irc_21;
+		Irc_20 = Irc_22 - Irc_19;
+	}
+	else if (L==21){
+		F = 21;
+		Irc_8 = Isc_8_21;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_22 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_21 = Irc_23 - Irc_22;
+	}
+	else if (L==22){
+		F = 22;
+		Irc_8 = Isc_8_22;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_22 = Irc_23 - Irc_21;
+	}
+	else if (L==23){
+		F = 23;
+		Irc_8 = Isc_8_23;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+	}
+	else if (LB==1){
+		FB = 1;
+		Irc_8 = Iscb_8_1;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+		Irc_1 = Irc_5 - Irc_2 - Irc_3;
+	}
+	else if (LB==2){
+		FB = 2;
+		Irc_8 = Iscb_8_2;
+		Irc_1 = 0;
+		Irc_3 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+		Irc_2 = Irc_5 - Irc_1 - Irc_3;
+	}
+	else if (LB==3){
+		FB = 3;
+		Irc_8 = Iscb_8_3;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+		Irc_3 = Irc_5 - Irc_1 - Irc_2;
+	}
+	else if (LB==4){
+		FB = 4;
+		Irc_8 = Iscb_8_4;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_5 = Irc_8 - Irc_6 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+	}
+	else if (LB==5){
+		FB = 5;
+		Irc_8 = Iscb_8_5;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+	}
+	else if (LB==6){
+		FB = 6;
+		Irc_8 = Iscb_8_6;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_6 = Irc_8 - Irc_5 - Irc_13 - Irc_17 - Irc_18 - Irc_23;
+	}
+	else if (LB==9){
+		FB = 9;
+		Irc_8 = Iscb_8_9;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_12 = Irc_13 - Irc_11;
+		Irc_9 = Irc_12 - Irc_10;
+	}
+	else if (LB==10){
+		FB = 10;
+		Irc_8 = Iscb_8_10;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_11 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_12 = Irc_13 - Irc_11;
+		Irc_10 = Irc_12 - Irc_9;
+	}
+	else if (LB==11){
+		FB = 11;
+		Irc_8 = Iscb_8_11;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_12 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_11 = Irc_13 - Irc_12;
+	}
+	else if (LB==12){
+		FB = 12;
+		Irc_8 = Iscb_8_12;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+		Irc_12 = Irc_13 - Irc_11;
+	}
+	else if (LB==13){
+		FB = 13;
+		Irc_8 = Iscb_8_13;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_13 = Irc_8 - Irc_5 - Irc_6 - Irc_17 - Irc_18 - Irc_23;
+	}
+	else if (LB==14){
+		FB = 14;
+		Irc_8 = Iscb_8_14;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+		Irc_14 = Irc_17 - Irc_15 - Irc_16;
+	}
+	else if (LB==15){
+		FB = 15;
+		Irc_8 = Iscb_8_15;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_16 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+		Irc_15 = Irc_17 - Irc_14 - Irc_16;
+	}
+	else if (LB==16){
+		FB = 16;
+		Irc_8 = Iscb_8_16;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+		Irc_16 = Irc_17 - Irc_14 - Irc_15;
+	}
+	else if (LB==17){
+		FB = 17;
+		Irc_8 = Iscb_8_17;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_17 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_18 - Irc_23;
+	}
+	else if (LB==18){
+		FB = 18;
+		Irc_8 = Iscb_8_18;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = 0;
+		Irc_18 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_23;
+	}
+	else if (LB==19){
+		FB = 19;
+		Irc_8 = Iscb_8_19;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_22 = Irc_23 - Irc_21;
+		Irc_19 = Irc_22 - Irc_20;
+	}
+	else if (LB==20){
+		FB = 20;
+		Irc_8 = Iscb_8_20;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_21 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_22 = Irc_23 - Irc_21;
+		Irc_20 = Irc_22 - Irc_19;
+	}
+	else if (LB==21){
+		FB = 21;
+		Irc_8 = Iscb_8_21;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_22 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_21 = Irc_23 - Irc_22;
+	}
+	else if (LB==22){
+		FB = 22;
+		Irc_8 = Iscb_8_22;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+		Irc_22 = Irc_23 - Irc_21;
+	}
+	else if (LB==23){
+		FB = 23;
+		Irc_8 = Iscb_8_23;
+		Irc_1 = 0;
+		Irc_2 = 0;
+		Irc_3 = 0;
+		Irc_5 = 0;
+		Irc_6 = 0;
+		Irc_9 = 0;
+		Irc_10 = 0;
+		Irc_11 = 0;
+		Irc_12 = 0;
+		Irc_13 = 0;
+		Irc_14 = 0;
+		Irc_15 = 0;
+		Irc_16 = 0;
+		Irc_17 = 0;
+		Irc_18 = 0;
+		Irc_19 = 0;
+		Irc_20 = 0;
+		Irc_21 = 0;
+		Irc_22 = 0;
+		Irc_23 = Irc_8 - Irc_5 - Irc_6 - Irc_13 - Irc_17 - Irc_18;
+	}
+}
+
+void update(int CB_ID){
+	if (F==1){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==2){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==3){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==5){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==6){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==9){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==10){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==11){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==12){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==13){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==14){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==15){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==16){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==17){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==18){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==19){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==20){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==21){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==22){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (F==23){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==1){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==2){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==3){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==4){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==5){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==6){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==9){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==10){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==11){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==12){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==13){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==14){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==15){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==16){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==17){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==18){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==19){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==20){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==21){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==22){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+	else if (FB==23){
+		if (CB_ID==1){
+			C1 = 0;
+			Irc_1 = 0;
+		}
+		else if (CB_ID==2){
+			C2 = 0;
+			Irc_2 = 0;
+		}
+		else if (CB_ID==3){
+			C3 = 0;
+			Irc_3 = 0;
+		}
+		else if (CB_ID==5){
+			C5 = 0;
+			Irc_5 = 0;
+		}
+		else if (CB_ID==6){
+			C6 = 0;
+			Irc_6 = 0;
+		}
+		else if (CB_ID==8){
+			C8 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+		else if (CB_ID==9){
+			C9 = 0;
+			Irc_9 = 0;
+		}
+		else if (CB_ID==10){
+			C10 = 0;
+			Irc_10 = 0;
+		}
+		else if (CB_ID==11){
+			C11 = 0;
+			Irc_11 = 0;
+		}
+		else if (CB_ID==12){
+			C12 = 0;
+			Irc_12 = 0;
+		}
+		else if (CB_ID==13){
+			C13 = 0;
+			Irc_13 = 0;
+		}
+		else if (CB_ID==14){
+			C14 = 0;
+			Irc_14 = 0;
+		}
+		else if (CB_ID==15){
+			C15 = 0;
+			Irc_15 = 0;
+		}
+		else if (CB_ID==16){
+			C16 = 0;
+			Irc_16 = 0;
+		}
+		else if (CB_ID==17){
+			C17 = 0;
+			Irc_17 = 0;
+		}
+		else if (CB_ID==18){
+			C18 = 0;
+			Irc_18 = 0;
+		}
+		else if (CB_ID==19){
+			C19 = 0;
+			Irc_19 = 0;
+		}
+		else if (CB_ID==20){
+			C20 = 0;
+			Irc_20 = 0;
+		}
+		else if (CB_ID==21){
+			C21 = 0;
+			Irc_21 = 0;
+		}
+		else if (CB_ID==22){
+			C22 = 0;
+			Irc_22 = 0;
+		}
+		else if (CB_ID==23){
+			C23 = 0;
+			Irc_1 = 0;
+			Irc_2 = 0;
+			Irc_3 = 0;
+			Irc_5 = 0;
+			Irc_6 = 0;
+			Irc_8 = 0;
+			Irc_9 = 0;
+			Irc_10 = 0;
+			Irc_11 = 0;
+			Irc_12 = 0;
+			Irc_13 = 0;
+			Irc_14 = 0;
+			Irc_15 = 0;
+			Irc_16 = 0;
+			Irc_17 = 0;
+			Irc_18 = 0;
+			Irc_19 = 0;
+			Irc_20 = 0;
+			Irc_21 = 0;
+			Irc_22 = 0;
+			Irc_23 = 0;
+		}
+	}
+}
+
+void clear() {
+	Irc_1 = Iioc_1;
+	Irc_2 = Iioc_2;
+	Irc_3 = Iioc_3;
+	Irc_5 = Iioc_5;
+	Irc_6 = Iioc_6;
+	Irc_8 = Iioc_8;
+	Irc_9 = Iioc_9;
+	Irc_10 = Iioc_10;
+	Irc_11 = Iioc_11;
+	Irc_12 = Iioc_12;
+	Irc_13 = Iioc_13;
+	Irc_14 = Iioc_14;
+	Irc_15 = Iioc_15;
+	Irc_16 = Iioc_16;
+	Irc_17 = Iioc_17;
+	Irc_18 = Iioc_18;
+	Irc_19 = Iioc_19;
+	Irc_20 = Iioc_20;
+	Irc_21 = Iioc_21;
+	Irc_22 = Iioc_22;
+	Irc_23 = Iioc_23;
+	IsFWD_1 = true;
+	IsFWD_2 = true;
+	IsFWD_3 = true;
+	IsFWD_5 = true;
+	IsFWD_6 = true;
+	IsFWD_8 = true;
+	IsFWD_9 = true;
+	IsFWD_10 = true;
+	IsFWD_11 = true;
+	IsFWD_12 = true;
+	IsFWD_13 = true;
+	IsFWD_14 = true;
+	IsFWD_15 = true;
+	IsFWD_16 = true;
+	IsFWD_17 = true;
+	IsFWD_18 = true;
+	IsFWD_19 = true;
+	IsFWD_20 = true;
+	IsFWD_21 = true;
+	IsFWD_22 = true;
+	IsFWD_23 = true;
+	Block_1 = false;
+	Block_2 = false;
+	Block_3 = false;
+	Block_5 = false;
+	Block_6 = false;
+	Block_8 = false;
+	Block_9 = false;
+	Block_10 = false;
+	Block_11 = false;
+	Block_12 = false;
+	Block_13 = false;
+	Block_14 = false;
+	Block_15 = false;
+	Block_16 = false;
+	Block_17 = false;
+	Block_18 = false;
+	Block_19 = false;
+	Block_20 = false;
+	Block_21 = false;
+	Block_22 = false;
+	Block_23 = false;
+}
+
+</declaration>
+	<template>
+		<name>Fault_Generator</name>
+		<location id="id0" x="476" y="25">
+			<name x="466" y="-9">Fault</name>
+		</location>
+		<location id="id1" x="272" y="221">
+			<name x="238" y="238">Check_Fault</name>
+		</location>
+		<location id="id2" x="-306" y="221">
+			<name x="-349" y="238">Reset_Ready</name>
+		</location>
+		<location id="id3" x="263" y="-127">
+			<name x="253" y="-161">Fault_Signal</name>
+		</location>
+		<location id="id4" x="-306" y="-127">
+			<name x="-357" y="-161">No_Fault</name>
+		</location>
+		<init ref="id4"/>
+		<transition id="id5">
+			<source ref="id2"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="0" y="0">Reset!</label>
+			<label kind="assignment" x="0" y="0">F=0, FB=0, F1=false, F2=false, F3=false, F5=false, F6=false, F9=false, F10=false, F11=false, F12=false, F13=false, F14=false, F15=false, F16=false, F17=false, F18=false, F19=false, F20=false, F21=false, F22=false, F23=false, FB1=false, FB2=false, FB3=false, FB4=false, FB5=false, FB6=false, FB9=false, FB10=false, FB11=false, FB12=false, FB13=false, FB14=false, FB15=false, FB16=false, FB17=false, FB18=false, FB19=false, FB20=false, FB21=false, FB22=false, FB23=false</label>
+		</transition>
+		<transition id="id6">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="0" y="0">Irc_1&lt;Ith_1 &amp;&amp; Irc_2&lt;Ith_2 &amp;&amp; Irc_3&lt;Ith_3 &amp;&amp; Irc_5&lt;Ith_5 &amp;&amp; Irc_6&lt;Ith_6 &amp;&amp; Irc_8&lt;Ith_8 &amp;&amp; Irc_9&lt;Ith_9 &amp;&amp; Irc_10&lt;Ith_10 &amp;&amp; Irc_11&lt;Ith_11 &amp;&amp; Irc_12&lt;Ith_12 &amp;&amp; Irc_13&lt;Ith_13 &amp;&amp; Irc_14&lt;Ith_14 &amp;&amp; Irc_15&lt;Ith_15 &amp;&amp; Irc_16&lt;Ith_16 &amp;&amp; Irc_17&lt;Ith_17 &amp;&amp; Irc_18&lt;Ith_18 &amp;&amp; Irc_19&lt;Ith_19 &amp;&amp; Irc_20&lt;Ith_20 &amp;&amp; Irc_21&lt;Ith_21 &amp;&amp; Irc_22&lt;Ith_22 &amp;&amp; Irc_23&lt;Ith_23</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared!</label>
+		</transition>
+		<transition id="id7">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="0" y="0">Irc_1&gt;=Ith_1 or Irc_2&gt;=Ith_2 or Irc_3&gt;=Ith_3 or Irc_5&gt;=Ith_5 or Irc_6&gt;=Ith_6 or Irc_8&gt;=Ith_8 or Irc_9&gt;=Ith_9 or Irc_10&gt;=Ith_10 or Irc_11&gt;=Ith_11 or Irc_12&gt;=Ith_12 or Irc_13&gt;=Ith_13 or Irc_14&gt;=Ith_14 or Irc_15&gt;=Ith_15 or Irc_16&gt;=Ith_16 or Irc_17&gt;=Ith_17 or Irc_18&gt;=Ith_18 or Irc_19&gt;=Ith_19 or Irc_20&gt;=Ith_20 or Irc_21&gt;=Ith_21 or Irc_22&gt;=Ith_22 or Irc_23&gt;=Ith_23</label>
+			<label kind="synchronisation" x="0" y="0">Close!</label>
+		</transition>
+		<transition id="id8">
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="0" y="0">CBopen?</label>
+		</transition>
+		<transition id="id9">
+			<source ref="id3"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="0" y="0">Faults!</label>
+		</transition>
+		<transition id="id10">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB23_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,23), FB23=true</label>
+		</transition>
+		<transition id="id11">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB22_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,22), FB22=true</label>
+		</transition>
+		<transition id="id12">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB21_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,21), FB21=true</label>
+		</transition>
+		<transition id="id13">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB20_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,20), FB20=true</label>
+		</transition>
+		<transition id="id14">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB19_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,19), FB19=true</label>
+		</transition>
+		<transition id="id15">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB18_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,18), FB18=true</label>
+		</transition>
+		<transition id="id16">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB17_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,17), FB17=true</label>
+		</transition>
+		<transition id="id17">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB16_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,16), FB16=true</label>
+		</transition>
+		<transition id="id18">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB15_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,15), FB15=true</label>
+		</transition>
+		<transition id="id19">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB14_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,14), FB14=true</label>
+		</transition>
+		<transition id="id20">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB13_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,13), FB13=true</label>
+		</transition>
+		<transition id="id21">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB12_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,12), FB12=true</label>
+		</transition>
+		<transition id="id22">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB11_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,11), FB11=true</label>
+		</transition>
+		<transition id="id23">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB10_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,10), FB10=true</label>
+		</transition>
+		<transition id="id24">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB9_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,9), FB9=true</label>
+		</transition>
+		<transition id="id25">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB6_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,6), FB6=true</label>
+		</transition>
+		<transition id="id26">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB5_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,5), FB5=true</label>
+		</transition>
+		<transition id="id27">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB4_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,4), FB4=true</label>
+		</transition>
+		<transition id="id28">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB3_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,3), FB3=true</label>
+		</transition>
+		<transition id="id29">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB2_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,2), FB2=true</label>
+		</transition>
+		<transition id="id30">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="0" y="0">LB1_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(0,1), FB1=true</label>
+		</transition>
+		<transition id="id31">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_23!=0</label>
+			<label kind="synchronisation" x="0" y="0">L23_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(23,0), F23=true</label>
+		</transition>
+		<transition id="id32">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_22!=0</label>
+			<label kind="synchronisation" x="0" y="0">L22_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(22,0), F22=true</label>
+		</transition>
+		<transition id="id33">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_21!=0</label>
+			<label kind="synchronisation" x="0" y="0">L21_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(21,0), F21=true</label>
+		</transition>
+		<transition id="id34">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_20!=0</label>
+			<label kind="synchronisation" x="0" y="0">L20_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(20,0), F20=true</label>
+		</transition>
+		<transition id="id35">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_19!=0</label>
+			<label kind="synchronisation" x="0" y="0">L19_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(19,0), F19=true</label>
+		</transition>
+		<transition id="id36">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_18!=0</label>
+			<label kind="synchronisation" x="0" y="0">L18_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(18,0), F18=true</label>
+		</transition>
+		<transition id="id37">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_17!=0</label>
+			<label kind="synchronisation" x="0" y="0">L17_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(17,0), F17=true</label>
+		</transition>
+		<transition id="id38">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_16!=0</label>
+			<label kind="synchronisation" x="0" y="0">L16_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(16,0), F16=true</label>
+		</transition>
+		<transition id="id39">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_15!=0</label>
+			<label kind="synchronisation" x="0" y="0">L15_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(15,0), F15=true</label>
+		</transition>
+		<transition id="id40">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_14!=0</label>
+			<label kind="synchronisation" x="0" y="0">L14_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(14,0), F14=true</label>
+		</transition>
+		<transition id="id41">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_13!=0</label>
+			<label kind="synchronisation" x="0" y="0">L13_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(13,0), F13=true</label>
+		</transition>
+		<transition id="id42">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_12!=0</label>
+			<label kind="synchronisation" x="0" y="0">L12_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(12,0), F12=true</label>
+		</transition>
+		<transition id="id43">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_11!=0</label>
+			<label kind="synchronisation" x="0" y="0">L11_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(11,0), F11=true</label>
+		</transition>
+		<transition id="id44">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_10!=0</label>
+			<label kind="synchronisation" x="0" y="0">L10_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(10,0), F10=true</label>
+		</transition>
+		<transition id="id45">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_9!=0</label>
+			<label kind="synchronisation" x="0" y="0">L9_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(9,0), F9=true</label>
+		</transition>
+		<transition id="id46">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_6!=0</label>
+			<label kind="synchronisation" x="0" y="0">L6_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(6,0), F6=true</label>
+		</transition>
+		<transition id="id47">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_5!=0</label>
+			<label kind="synchronisation" x="0" y="0">L5_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(5,0), F5=true</label>
+		</transition>
+		<transition id="id48">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_3!=0</label>
+			<label kind="synchronisation" x="0" y="0">L3_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(3,0), F3=true</label>
+		</transition>
+		<transition id="id49">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_2!=0</label>
+			<label kind="synchronisation" x="0" y="0">L2_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(2,0), F2=true</label>
+		</transition>
+		<transition id="id50">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="0" y="0">Irc_1!=0</label>
+			<label kind="synchronisation" x="0" y="0">L1_fault!</label>
+			<label kind="assignment" x="0" y="0">Isc(1,0), F1=true</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_1</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id51" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id52" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id53" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id53"/>
+		<transition id="id54">
+			<source ref="id51"/>
+			<target ref="id53"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C1=1</label>
+		</transition>
+		<transition id="id55">
+			<source ref="id52"/>
+			<target ref="id51"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_1&gt;=Ith_1</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(1)</label>
+		</transition>
+		<transition id="id56">
+			<source ref="id52"/>
+			<target ref="id53"/>
+			<label kind="guard" x="0" y="0">Irc_1&lt;Ith_1</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id57">
+			<source ref="id52"/>
+			<target ref="id53"/>
+			<label kind="guard" x="0" y="0">Irc_1&lt;Ith_1</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id58">
+			<source ref="id53"/>
+			<target ref="id52"/>
+			<label kind="guard" x="0" y="0">Irc_1&gt;Ith_1</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_1)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_2</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id59" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id60" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id61" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id61"/>
+		<transition id="id62">
+			<source ref="id59"/>
+			<target ref="id61"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C2=1</label>
+		</transition>
+		<transition id="id63">
+			<source ref="id60"/>
+			<target ref="id59"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_2&gt;=Ith_2</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(2)</label>
+		</transition>
+		<transition id="id64">
+			<source ref="id60"/>
+			<target ref="id61"/>
+			<label kind="guard" x="0" y="0">Irc_2&lt;Ith_2</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id65">
+			<source ref="id60"/>
+			<target ref="id61"/>
+			<label kind="guard" x="0" y="0">Irc_2&lt;Ith_2</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id66">
+			<source ref="id61"/>
+			<target ref="id60"/>
+			<label kind="guard" x="0" y="0">Irc_2&gt;Ith_2</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_2)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_3</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 9;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id67" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id68" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id69" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id69"/>
+		<transition id="id70">
+			<source ref="id67"/>
+			<target ref="id69"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C3=1</label>
+		</transition>
+		<transition id="id71">
+			<source ref="id68"/>
+			<target ref="id67"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_3&gt;=Ith_3</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(3)</label>
+		</transition>
+		<transition id="id72">
+			<source ref="id68"/>
+			<target ref="id69"/>
+			<label kind="guard" x="0" y="0">Irc_3&lt;Ith_3</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id73">
+			<source ref="id68"/>
+			<target ref="id69"/>
+			<label kind="guard" x="0" y="0">Irc_3&lt;Ith_3</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id74">
+			<source ref="id69"/>
+			<target ref="id68"/>
+			<label kind="guard" x="0" y="0">Irc_3&gt;Ith_3</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_3)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_5</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 63;
+int t1 = 120;
+int i2 = 150;
+int t2 = 4;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id75" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id76" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id77" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id77"/>
+		<transition id="id78">
+			<source ref="id75"/>
+			<target ref="id77"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C5=1</label>
+		</transition>
+		<transition id="id79">
+			<source ref="id76"/>
+			<target ref="id75"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_5&gt;=Ith_5</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(5)</label>
+		</transition>
+		<transition id="id80">
+			<source ref="id76"/>
+			<target ref="id77"/>
+			<label kind="guard" x="0" y="0">Irc_5&lt;Ith_5</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id81">
+			<source ref="id76"/>
+			<target ref="id77"/>
+			<label kind="guard" x="0" y="0">Irc_5&lt;Ith_5</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id82">
+			<source ref="id77"/>
+			<target ref="id76"/>
+			<label kind="guard" x="0" y="0">Irc_5&gt;Ith_5</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_5)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_6</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id83" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id84" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id85" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id85"/>
+		<transition id="id86">
+			<source ref="id83"/>
+			<target ref="id85"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C6=1</label>
+		</transition>
+		<transition id="id87">
+			<source ref="id84"/>
+			<target ref="id83"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_6&gt;=Ith_6</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(6)</label>
+		</transition>
+		<transition id="id88">
+			<source ref="id84"/>
+			<target ref="id85"/>
+			<label kind="guard" x="0" y="0">Irc_6&lt;Ith_6</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id89">
+			<source ref="id84"/>
+			<target ref="id85"/>
+			<label kind="guard" x="0" y="0">Irc_6&lt;Ith_6</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id90">
+			<source ref="id85"/>
+			<target ref="id84"/>
+			<label kind="guard" x="0" y="0">Irc_6&gt;Ith_6</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_6)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_8</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 300;
+int t1 = 150;
+int i2 = 450;
+int t2 = 8;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id91" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id92" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id93" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id93"/>
+		<transition id="id94">
+			<source ref="id91"/>
+			<target ref="id93"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C8=1</label>
+		</transition>
+		<transition id="id95">
+			<source ref="id92"/>
+			<target ref="id91"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_8&gt;=Ith_8</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(8)</label>
+		</transition>
+		<transition id="id96">
+			<source ref="id92"/>
+			<target ref="id93"/>
+			<label kind="guard" x="0" y="0">Irc_8&lt;Ith_8</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id97">
+			<source ref="id92"/>
+			<target ref="id93"/>
+			<label kind="guard" x="0" y="0">Irc_8&lt;Ith_8</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id98">
+			<source ref="id93"/>
+			<target ref="id92"/>
+			<label kind="guard" x="0" y="0">Irc_8&gt;Ith_8</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_8)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_9</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id99" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id100" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id101" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id101"/>
+		<transition id="id102">
+			<source ref="id99"/>
+			<target ref="id101"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C9=1</label>
+		</transition>
+		<transition id="id103">
+			<source ref="id100"/>
+			<target ref="id99"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_9&gt;=Ith_9</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(9)</label>
+		</transition>
+		<transition id="id104">
+			<source ref="id100"/>
+			<target ref="id101"/>
+			<label kind="guard" x="0" y="0">Irc_9&lt;Ith_9</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id105">
+			<source ref="id100"/>
+			<target ref="id101"/>
+			<label kind="guard" x="0" y="0">Irc_9&lt;Ith_9</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id106">
+			<source ref="id101"/>
+			<target ref="id100"/>
+			<label kind="guard" x="0" y="0">Irc_9&gt;Ith_9</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_9)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_10</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id107" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id108" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id109" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id109"/>
+		<transition id="id110">
+			<source ref="id107"/>
+			<target ref="id109"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C10=1</label>
+		</transition>
+		<transition id="id111">
+			<source ref="id108"/>
+			<target ref="id107"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_10&gt;=Ith_10</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(10)</label>
+		</transition>
+		<transition id="id112">
+			<source ref="id108"/>
+			<target ref="id109"/>
+			<label kind="guard" x="0" y="0">Irc_10&lt;Ith_10</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id113">
+			<source ref="id108"/>
+			<target ref="id109"/>
+			<label kind="guard" x="0" y="0">Irc_10&lt;Ith_10</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id114">
+			<source ref="id109"/>
+			<target ref="id108"/>
+			<label kind="guard" x="0" y="0">Irc_10&gt;Ith_10</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_10)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_11</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id115" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id116" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id117" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id117"/>
+		<transition id="id118">
+			<source ref="id115"/>
+			<target ref="id117"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C11=1</label>
+		</transition>
+		<transition id="id119">
+			<source ref="id116"/>
+			<target ref="id115"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_11&gt;=Ith_11</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(11)</label>
+		</transition>
+		<transition id="id120">
+			<source ref="id116"/>
+			<target ref="id117"/>
+			<label kind="guard" x="0" y="0">Irc_11&lt;Ith_11</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id121">
+			<source ref="id116"/>
+			<target ref="id117"/>
+			<label kind="guard" x="0" y="0">Irc_11&lt;Ith_11</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id122">
+			<source ref="id117"/>
+			<target ref="id116"/>
+			<label kind="guard" x="0" y="0">Irc_11&gt;Ith_11</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_11)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_12</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 50;
+int t1 = 60;
+int i2 = 120;
+int t2 = 4;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id123" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id124" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id125" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id125"/>
+		<transition id="id126">
+			<source ref="id123"/>
+			<target ref="id125"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C12=1</label>
+		</transition>
+		<transition id="id127">
+			<source ref="id124"/>
+			<target ref="id123"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_12&gt;=Ith_12</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(12)</label>
+		</transition>
+		<transition id="id128">
+			<source ref="id124"/>
+			<target ref="id125"/>
+			<label kind="guard" x="0" y="0">Irc_12&lt;Ith_12</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id129">
+			<source ref="id124"/>
+			<target ref="id125"/>
+			<label kind="guard" x="0" y="0">Irc_12&lt;Ith_12</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id130">
+			<source ref="id125"/>
+			<target ref="id124"/>
+			<label kind="guard" x="0" y="0">Irc_12&gt;Ith_12</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_12)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_13</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 75;
+int t1 = 120;
+int i2 = 150;
+int t2 = 6;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id131" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id132" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id133" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id133"/>
+		<transition id="id134">
+			<source ref="id131"/>
+			<target ref="id133"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C13=1</label>
+		</transition>
+		<transition id="id135">
+			<source ref="id132"/>
+			<target ref="id131"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_13&gt;=Ith_13</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(13)</label>
+		</transition>
+		<transition id="id136">
+			<source ref="id132"/>
+			<target ref="id133"/>
+			<label kind="guard" x="0" y="0">Irc_13&lt;Ith_13</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id137">
+			<source ref="id132"/>
+			<target ref="id133"/>
+			<label kind="guard" x="0" y="0">Irc_13&lt;Ith_13</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id138">
+			<source ref="id133"/>
+			<target ref="id132"/>
+			<label kind="guard" x="0" y="0">Irc_13&gt;Ith_13</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_13)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_14</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id139" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id140" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id141" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id141"/>
+		<transition id="id142">
+			<source ref="id139"/>
+			<target ref="id141"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C14=1</label>
+		</transition>
+		<transition id="id143">
+			<source ref="id140"/>
+			<target ref="id139"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_14&gt;=Ith_14</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(14)</label>
+		</transition>
+		<transition id="id144">
+			<source ref="id140"/>
+			<target ref="id141"/>
+			<label kind="guard" x="0" y="0">Irc_14&lt;Ith_14</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id145">
+			<source ref="id140"/>
+			<target ref="id141"/>
+			<label kind="guard" x="0" y="0">Irc_14&lt;Ith_14</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id146">
+			<source ref="id141"/>
+			<target ref="id140"/>
+			<label kind="guard" x="0" y="0">Irc_14&gt;Ith_14</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_14)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_15</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id147" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id148" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id149" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id149"/>
+		<transition id="id150">
+			<source ref="id147"/>
+			<target ref="id149"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C15=1</label>
+		</transition>
+		<transition id="id151">
+			<source ref="id148"/>
+			<target ref="id147"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_15&gt;=Ith_15</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(15)</label>
+		</transition>
+		<transition id="id152">
+			<source ref="id148"/>
+			<target ref="id149"/>
+			<label kind="guard" x="0" y="0">Irc_15&lt;Ith_15</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id153">
+			<source ref="id148"/>
+			<target ref="id149"/>
+			<label kind="guard" x="0" y="0">Irc_15&lt;Ith_15</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id154">
+			<source ref="id149"/>
+			<target ref="id148"/>
+			<label kind="guard" x="0" y="0">Irc_15&gt;Ith_15</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_15)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_16</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id155" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id156" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id157" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id157"/>
+		<transition id="id158">
+			<source ref="id155"/>
+			<target ref="id157"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C16=1</label>
+		</transition>
+		<transition id="id159">
+			<source ref="id156"/>
+			<target ref="id155"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_16&gt;=Ith_16</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(16)</label>
+		</transition>
+		<transition id="id160">
+			<source ref="id156"/>
+			<target ref="id157"/>
+			<label kind="guard" x="0" y="0">Irc_16&lt;Ith_16</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id161">
+			<source ref="id156"/>
+			<target ref="id157"/>
+			<label kind="guard" x="0" y="0">Irc_16&lt;Ith_16</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id162">
+			<source ref="id157"/>
+			<target ref="id156"/>
+			<label kind="guard" x="0" y="0">Irc_16&gt;Ith_16</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_16)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_17</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 63;
+int t1 = 120;
+int i2 = 150;
+int t2 = 4;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id163" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id164" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id165" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id165"/>
+		<transition id="id166">
+			<source ref="id163"/>
+			<target ref="id165"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C17=1</label>
+		</transition>
+		<transition id="id167">
+			<source ref="id164"/>
+			<target ref="id163"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_17&gt;=Ith_17</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(17)</label>
+		</transition>
+		<transition id="id168">
+			<source ref="id164"/>
+			<target ref="id165"/>
+			<label kind="guard" x="0" y="0">Irc_17&lt;Ith_17</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id169">
+			<source ref="id164"/>
+			<target ref="id165"/>
+			<label kind="guard" x="0" y="0">Irc_17&lt;Ith_17</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id170">
+			<source ref="id165"/>
+			<target ref="id164"/>
+			<label kind="guard" x="0" y="0">Irc_17&gt;Ith_17</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_17)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_18</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id171" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id172" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id173" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id173"/>
+		<transition id="id174">
+			<source ref="id171"/>
+			<target ref="id173"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C18=1</label>
+		</transition>
+		<transition id="id175">
+			<source ref="id172"/>
+			<target ref="id171"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_18&gt;=Ith_18</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(18)</label>
+		</transition>
+		<transition id="id176">
+			<source ref="id172"/>
+			<target ref="id173"/>
+			<label kind="guard" x="0" y="0">Irc_18&lt;Ith_18</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id177">
+			<source ref="id172"/>
+			<target ref="id173"/>
+			<label kind="guard" x="0" y="0">Irc_18&lt;Ith_18</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id178">
+			<source ref="id173"/>
+			<target ref="id172"/>
+			<label kind="guard" x="0" y="0">Irc_18&gt;Ith_18</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_18)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_19</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id179" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id180" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id181" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id181"/>
+		<transition id="id182">
+			<source ref="id179"/>
+			<target ref="id181"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C19=1</label>
+		</transition>
+		<transition id="id183">
+			<source ref="id180"/>
+			<target ref="id179"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_19&gt;=Ith_19</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(19)</label>
+		</transition>
+		<transition id="id184">
+			<source ref="id180"/>
+			<target ref="id181"/>
+			<label kind="guard" x="0" y="0">Irc_19&lt;Ith_19</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id185">
+			<source ref="id180"/>
+			<target ref="id181"/>
+			<label kind="guard" x="0" y="0">Irc_19&lt;Ith_19</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id186">
+			<source ref="id181"/>
+			<target ref="id180"/>
+			<label kind="guard" x="0" y="0">Irc_19&gt;Ith_19</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_19)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_20</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id187" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id188" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id189" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id189"/>
+		<transition id="id190">
+			<source ref="id187"/>
+			<target ref="id189"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C20=1</label>
+		</transition>
+		<transition id="id191">
+			<source ref="id188"/>
+			<target ref="id187"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_20&gt;=Ith_20</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(20)</label>
+		</transition>
+		<transition id="id192">
+			<source ref="id188"/>
+			<target ref="id189"/>
+			<label kind="guard" x="0" y="0">Irc_20&lt;Ith_20</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id193">
+			<source ref="id188"/>
+			<target ref="id189"/>
+			<label kind="guard" x="0" y="0">Irc_20&lt;Ith_20</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id194">
+			<source ref="id189"/>
+			<target ref="id188"/>
+			<label kind="guard" x="0" y="0">Irc_20&gt;Ith_20</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_20)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_21</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 25;
+int t1 = 30;
+int i2 = 95;
+int t2 = 2;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id195" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id196" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id197" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id197"/>
+		<transition id="id198">
+			<source ref="id195"/>
+			<target ref="id197"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C21=1</label>
+		</transition>
+		<transition id="id199">
+			<source ref="id196"/>
+			<target ref="id195"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_21&gt;=Ith_21</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(21)</label>
+		</transition>
+		<transition id="id200">
+			<source ref="id196"/>
+			<target ref="id197"/>
+			<label kind="guard" x="0" y="0">Irc_21&lt;Ith_21</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id201">
+			<source ref="id196"/>
+			<target ref="id197"/>
+			<label kind="guard" x="0" y="0">Irc_21&lt;Ith_21</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id202">
+			<source ref="id197"/>
+			<target ref="id196"/>
+			<label kind="guard" x="0" y="0">Irc_21&gt;Ith_21</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_21)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_22</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 75;
+int t1 = 60;
+int i2 = 170;
+int t2 = 4;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id203" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id204" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id205" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id205"/>
+		<transition id="id206">
+			<source ref="id203"/>
+			<target ref="id205"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C22=1</label>
+		</transition>
+		<transition id="id207">
+			<source ref="id204"/>
+			<target ref="id203"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_22&gt;=Ith_22</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(22)</label>
+		</transition>
+		<transition id="id208">
+			<source ref="id204"/>
+			<target ref="id205"/>
+			<label kind="guard" x="0" y="0">Irc_22&lt;Ith_22</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id209">
+			<source ref="id204"/>
+			<target ref="id205"/>
+			<label kind="guard" x="0" y="0">Irc_22&lt;Ith_22</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id210">
+			<source ref="id205"/>
+			<target ref="id204"/>
+			<label kind="guard" x="0" y="0">Irc_22&gt;Ith_22</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_22)</label>
+		</transition>
+	</template>
+	<template>
+		<name>Circuit_Breaker_23</name>
+		<declaration>clock x;
+
+int t;
+int m = 3;
+int i1 = 63;
+int t1 = 120;
+int i2 = 150;
+int t2 = 6;
+void triptime(int I) {
+	if (I &lt; i1) {
+		t = 9999;
+	} else if (I &gt;= i1 &amp;&amp; I &lt; i2) {
+		t = (m * i1 * m * i1 * t1) / (I * I);
+	} else if (I &gt;= i2) {
+		t = t2;
+	}
+}
+</declaration>
+		<location id="id211" x="119" y="-68">
+			<name x="109" y="-102">Open</name>
+		</location>
+		<location id="id212" x="-119" y="-200">
+			<name x="-144" y="-234">Standby</name>
+			<label kind="invariant" x="-127" y="-190">x&lt;=t</label>
+		</location>
+		<location id="id213" x="-364" y="-68">
+			<name x="-382" y="-102">Closed</name>
+		</location>
+		<init ref="id213"/>
+		<transition id="id214">
+			<source ref="id211"/>
+			<target ref="id213"/>
+			<label kind="synchronisation" x="0" y="0">Reset?</label>
+			<label kind="assignment" x="0" y="0">clear(), C23=1</label>
+		</transition>
+		<transition id="id215">
+			<source ref="id212"/>
+			<target ref="id211"/>
+			<label kind="guard" x="0" y="0">x==t &amp;&amp; Irc_23&gt;=Ith_23</label>
+			<label kind="synchronisation" x="0" y="0">CBopen!</label>
+			<label kind="assignment" x="0" y="0">update(23)</label>
+		</transition>
+		<transition id="id216">
+			<source ref="id212"/>
+			<target ref="id213"/>
+			<label kind="guard" x="0" y="0">Irc_23&lt;Ith_23</label>
+			<label kind="synchronisation" x="0" y="0">Fault_cleared?</label>
+		</transition>
+		<transition id="id217">
+			<source ref="id212"/>
+			<target ref="id213"/>
+			<label kind="guard" x="0" y="0">Irc_23&lt;Ith_23</label>
+			<label kind="synchronisation" x="0" y="0">Close?</label>
+		</transition>
+		<transition id="id218">
+			<source ref="id213"/>
+			<target ref="id212"/>
+			<label kind="guard" x="0" y="0">Irc_23&gt;Ith_23</label>
+			<label kind="synchronisation" x="0" y="0">Faults?</label>
+			<label kind="assignment" x="0" y="0">x=0, triptime(Irc_23)</label>
+		</transition>
+	</template>
+	<system>FG = Fault_Generator();
+
+CB1 = Circuit_Breaker_1();
+CB2 = Circuit_Breaker_2();
+CB3 = Circuit_Breaker_3();
+CB5 = Circuit_Breaker_5();
+CB6 = Circuit_Breaker_6();
+CB8 = Circuit_Breaker_8();
+CB9 = Circuit_Breaker_9();
+CB10 = Circuit_Breaker_10();
+CB11 = Circuit_Breaker_11();
+CB12 = Circuit_Breaker_12();
+CB13 = Circuit_Breaker_13();
+CB14 = Circuit_Breaker_14();
+CB15 = Circuit_Breaker_15();
+CB16 = Circuit_Breaker_16();
+CB17 = Circuit_Breaker_17();
+CB18 = Circuit_Breaker_18();
+CB19 = Circuit_Breaker_19();
+CB20 = Circuit_Breaker_20();
+CB21 = Circuit_Breaker_21();
+CB22 = Circuit_Breaker_22();
+CB23 = Circuit_Breaker_23();
+
+system FG, CB1, CB2, CB3, CB5, CB6, CB8, CB9, CB10, CB11, CB12, CB13, CB14, CB15, CB16, CB17, CB18, CB19, CB20, CB21, CB22, CB23;
+</system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt;((!CB1.Open &amp;&amp; CB5.Open &amp;&amp; F1)||(!CB1.Open &amp;&amp; CB8.Open &amp;&amp; F1)||(!CB2.Open &amp;&amp; CB5.Open &amp;&amp; F2)||(!CB2.Open &amp;&amp; CB8.Open &amp;&amp; F2)||(!CB3.Open &amp;&amp; CB5.Open &amp;&amp; F3)||(!CB3.Open &amp;&amp; CB8.Open &amp;&amp; F3)||(!CB5.Open &amp;&amp; CB8.Open &amp;&amp; F5)||(!CB6.Open &amp;&amp; CB8.Open &amp;&amp; F6)||(!CB9.Open &amp;&amp; CB12.Open &amp;&amp; F9)||(!CB9.Open &amp;&amp; CB13.Open &amp;&amp; F9)||(!CB9.Open &amp;&amp; CB8.Open &amp;&amp; F9)||(!CB10.Open &amp;&amp; CB12.Open &amp;&amp; F10)||(!CB10.Open &amp;&amp; CB13.Open &amp;&amp; F10)||(!CB10.Open &amp;&amp; CB8.Open &amp;&amp; F10)||(!CB11.Open &amp;&amp; CB13.Open &amp;&amp; F11)||(!CB11.Open &amp;&amp; CB8.Open &amp;&amp; F11)||(!CB12.Open &amp;&amp; CB13.Open &amp;&amp; F12)||(!CB12.Open &amp;&amp; CB8.Open &amp;&amp; F12)||(!CB13.Open &amp;&amp; CB8.Open &amp;&amp; F13)||(!CB14.Open &amp;&amp; CB17.Open &amp;&amp; F14)||(!CB14.Open &amp;&amp; CB8.Open &amp;&amp; F14)||(!CB15.Open &amp;&amp; CB17.Open &amp;&amp; F15)||(!CB15.Open &amp;&amp; CB8.Open &amp;&amp; F15)||(!CB16.Open &amp;&amp; CB17.Open &amp;&amp; F16)||(!CB16.Open &amp;&amp; CB8.Open &amp;&amp; F16)||(!CB17.Open &amp;&amp; CB8.Open &amp;&amp; F17)||(!CB18.Open &amp;&amp; CB8.Open &amp;&amp; F18)||(!CB19.Open &amp;&amp; CB22.Open &amp;&amp; F19)||(!CB19.Open &amp;&amp; CB23.Open &amp;&amp; F19)||(!CB19.Open &amp;&amp; CB8.Open &amp;&amp; F19)||(!CB20.Open &amp;&amp; CB22.Open &amp;&amp; F20)||(!CB20.Open &amp;&amp; CB23.Open &amp;&amp; F20)||(!CB20.Open &amp;&amp; CB8.Open &amp;&amp; F20)||(!CB21.Open &amp;&amp; CB23.Open &amp;&amp; F21)||(!CB21.Open &amp;&amp; CB8.Open &amp;&amp; F21)||(!CB22.Open &amp;&amp; CB23.Open &amp;&amp; F22)||(!CB22.Open &amp;&amp; CB8.Open &amp;&amp; F22)||(!CB23.Open &amp;&amp; CB8.Open &amp;&amp; F23)||(!CB1.Open &amp;&amp; CB5.Open &amp;&amp; FB1)||(!CB1.Open &amp;&amp; CB8.Open &amp;&amp; FB1)||(!CB2.Open &amp;&amp; CB5.Open &amp;&amp; FB2)||(!CB2.Open &amp;&amp; CB8.Open &amp;&amp; FB2)||(!CB3.Open &amp;&amp; CB5.Open &amp;&amp; FB3)||(!CB3.Open &amp;&amp; CB8.Open &amp;&amp; FB3)||(!CB5.Open &amp;&amp; CB8.Open &amp;&amp; FB4)||(!CB6.Open &amp;&amp; CB8.Open &amp;&amp; FB6)||(!CB9.Open &amp;&amp; CB12.Open &amp;&amp; FB9)||(!CB9.Open &amp;&amp; CB13.Open &amp;&amp; FB9)||(!CB9.Open &amp;&amp; CB8.Open &amp;&amp; FB9)||(!CB10.Open &amp;&amp; CB12.Open &amp;&amp; FB10)||(!CB10.Open &amp;&amp; CB13.Open &amp;&amp; FB10)||(!CB10.Open &amp;&amp; CB8.Open &amp;&amp; FB10)||(!CB11.Open &amp;&amp; CB13.Open &amp;&amp; FB11)||(!CB11.Open &amp;&amp; CB8.Open &amp;&amp; FB11)||(!CB12.Open &amp;&amp; CB13.Open &amp;&amp; FB12)||(!CB12.Open &amp;&amp; CB8.Open &amp;&amp; FB12)||(!CB13.Open &amp;&amp; CB8.Open &amp;&amp; FB13)||(!CB14.Open &amp;&amp; CB17.Open &amp;&amp; FB14)||(!CB14.Open &amp;&amp; CB8.Open &amp;&amp; FB14)||(!CB15.Open &amp;&amp; CB17.Open &amp;&amp; FB15)||(!CB15.Open &amp;&amp; CB8.Open &amp;&amp; FB15)||(!CB16.Open &amp;&amp; CB17.Open &amp;&amp; FB16)||(!CB16.Open &amp;&amp; CB8.Open &amp;&amp; FB16)||(!CB17.Open &amp;&amp; CB8.Open &amp;&amp; FB17)||(!CB18.Open &amp;&amp; CB8.Open &amp;&amp; FB18)||(!CB19.Open &amp;&amp; CB22.Open &amp;&amp; FB19)||(!CB19.Open &amp;&amp; CB23.Open &amp;&amp; FB19)||(!CB19.Open &amp;&amp; CB8.Open &amp;&amp; FB19)||(!CB20.Open &amp;&amp; CB22.Open &amp;&amp; FB20)||(!CB20.Open &amp;&amp; CB23.Open &amp;&amp; FB20)||(!CB20.Open &amp;&amp; CB8.Open &amp;&amp; FB20)||(!CB21.Open &amp;&amp; CB23.Open &amp;&amp; FB21)||(!CB21.Open &amp;&amp; CB8.Open &amp;&amp; FB21)||(!CB22.Open &amp;&amp; CB23.Open &amp;&amp; FB22)||(!CB22.Open &amp;&amp; CB8.Open &amp;&amp; FB22)||(!CB23.Open &amp;&amp; CB8.Open &amp;&amp; FB23))</formula>
+			<comment/>
+		</query>
+	</queries>
+</nta>
