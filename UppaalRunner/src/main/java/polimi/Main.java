@@ -1,9 +1,8 @@
 package polimi;
 
-import polimi.logic.NetworkBuilder;
+import polimi.logic.networkParsing.NetworkBuilder;
 import polimi.logic.SelectivityChecker;
 import polimi.model.Network;
-import polimi.model.VerificationResult;
 import polimi.util.NetworkGraphVisualizer;
 import java.io.File;
 import java.io.IOException;
@@ -14,32 +13,53 @@ public class Main {
         //String uppaalHome = resolveUppaalPath(args);
         String uppaalHome = "UppaalRunner/UPPAAL-5.1.0-beta5.app/Contents/Resources/uppaal";
 
-        String jsonPath = "UppaalRunner/example/jsonNet/Example_20bus_Network_1.json";
+        String jsonPath = "UppaalRunner/example/jsonNet/Example_100bus.json";
 
         Network network = NetworkBuilder.build(new File(jsonPath));
         //visualizeNetwork(network);
 
-        JavaAPI.startUppaalEngines(uppaalHome, 2);
+        JavaAPI.startUppaalEngines(uppaalHome, 6);
+
+        long startLoad = System.currentTimeMillis();
         JavaAPI.loadNetwork(jsonPath);
+        long endLoad = System.currentTimeMillis();
+        int[] misconfiguredCBs = JavaAPI.extractMisconfiguredCBs(7);
+        long endExtraction = System.currentTimeMillis();
 
-        JavaAPI.generateUppaalModel("/Users/enzo/Desktop/test","test");
-        JavaAPI.generateSplitUppaalModels("/Users/enzo/Desktop/test/split","test",8);
+        System.out.println("Initial Net misconfigured cbs: " + Arrays.toString(misconfiguredCBs));
 
-        System.out.println("Path 8 -> 9: " + Arrays.toString(JavaAPI.getNetworkPath(8, 9)));
-        System.out.println("DefaultQuery: " + JavaAPI.generateDefaultQuery());
-        System.out.println("Default Query Verification:\n" + JavaAPI.verifyDefaultQuery(true));
-
-        String filteredQuery = JavaAPI.generateFilteredQuery(new int[]{3, 5, 8});
-
-        System.out.println("Filtered Query (without cbs 3,5,8): " + filteredQuery);
-        //VerificationResult result = JavaAPI.verifyQuery(filteredQuery, false);
-        //System.out.println("Filtered Query Verification:\n" + Arrays.toString(result.getMisconfiguredCBsArray()));
-
-        System.out.println("Initial Net misconfigured cbs: " + Arrays.toString(JavaAPI.extractMisconfiguredCBs()));
         System.out.println("Updating t2 of CB_23 from 6 to 1");
-        JavaAPI.updateCBConfig(23, 1);
-        System.out.println("Misconfigured cbs after update: " + Arrays.toString(JavaAPI.extractMisconfiguredCBs()));
 
+        long startUpdate = System.currentTimeMillis();
+        JavaAPI.updateCBConfig(23, 1);
+        long endUpdate = System.currentTimeMillis();
+        int[] misconfigured2 = JavaAPI.extractMisconfiguredCBs(7);
+        long endExtraction2 = System.currentTimeMillis();
+
+        System.out.println("Misconfigured cbs after update: " + Arrays.toString(misconfigured2));
+        long secondExtraction1 = endExtraction2 - endUpdate;
+        System.out.println(secondExtraction1);
+
+
+        long startLoad2 = System.currentTimeMillis();
+        JavaAPI.loadNetwork(jsonPath, 7);
+        long endLoad2 = System.currentTimeMillis();
+        int[] misconfiguredCBs2 = JavaAPI.extractMisconfiguredCBs(7);
+        long endExtraction22 = System.currentTimeMillis();
+
+        System.out.println("Initial Net misconfigured cbs: " + Arrays.toString(misconfiguredCBs2));
+
+        System.out.println("Updating t2 of CB_23 from 6 to 1");
+
+        long startUpdate2 = System.currentTimeMillis();
+        JavaAPI.updateDocumentCBConfig(23, 1);
+        long endUpdate2 = System.currentTimeMillis();
+        int[] misconfigured22 = JavaAPI.extractMisconfiguredCBs(7);
+        long endExtraction3 = System.currentTimeMillis();
+
+        System.out.println("Misconfigured cbs after update: " + Arrays.toString(misconfigured22));
+        long secondExtraction = endExtraction3 - endUpdate2;
+        System.out.println(secondExtraction);
         JavaAPI.shutdown();
 
     }

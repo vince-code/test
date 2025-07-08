@@ -1,21 +1,5 @@
 package matlabComparisonTests;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Getter;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-import polimi.logic.NetworkBuilder;
-import polimi.logic.splitter.FaultScenario;
-import polimi.logic.splitter.NetworkFaultSplitter;
-import polimi.model.Network;
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

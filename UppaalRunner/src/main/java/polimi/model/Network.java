@@ -1,14 +1,21 @@
 package polimi.model;
 
 import lombok.Data;
+import polimi.logic.PathFinder;
+import polimi.logic.RadialPathFinder;
+
 import java.util.*;
 
 @Data
 public class Network {
-    public final Map<Integer, Bus> busMap;
-    public final Map<Integer, Line> lineMap;
-    public final Map<Integer, CircuitBreaker> cbMap;
-    public final List<Source> sources;
+
+    private final Map<Integer, Bus> busMap;
+    private final Map<Integer, Line> lineMap;
+    private final Map<Integer, CircuitBreaker> cbMap;
+    private final List<Source> sources;
+
+    private final NetworkType type;
+    private final PathFinder pathFinder;
 
     private final Map<PathKey, List<Line>> cachedPaths = new HashMap<>();
 
@@ -17,6 +24,8 @@ public class Network {
         this.lineMap = lineMap;
         this.cbMap = cbMap;
         this.sources = sources;
+        this.type = detectNetworkType();
+        this.pathFinder = this.type.getPathFinder();
         this.precalculateAllPaths();
     }
 
@@ -44,14 +53,28 @@ public class Network {
         return cb;
     }
 
+    public boolean hasCycles(){
+        return lineMap.size() >= busMap.size();
+    }
+
+    private NetworkType detectNetworkType(){
+        if (hasCycles()){
+            return NetworkType.CLOSED_RING;
+        }
+        if (sources.size() == 1){
+            return NetworkType.RADIAL;
+        }
+        return NetworkType.OPEN_RING;
+    }
+
     public List<Line> getCachedPath(Bus fromBus, Bus toBus) {
         PathKey pathKey = new PathKey(fromBus.getId(), toBus.getId());
-        return cachedPaths.computeIfAbsent(pathKey, k -> findPath(fromBus, toBus));
+        return cachedPaths.computeIfAbsent(pathKey, k -> pathFinder.findPath(fromBus, toBus));
     }
 
     public List<Line> getCachedPath(int fromBusId, int toBusId) {
         PathKey pathKey = new PathKey(fromBusId, toBusId);
-        return cachedPaths.computeIfAbsent(pathKey, k -> findPath(getBus(fromBusId), getBus(toBusId)));
+        return cachedPaths.computeIfAbsent(pathKey, k -> pathFinder.findPath(getBus(fromBusId), getBus(toBusId)));
     }
 
     public void precalculateAllPaths() {
@@ -62,26 +85,5 @@ public class Network {
                 }
             }
         }
-    }
-
-    private List<Line> findPath(Bus startingBus, Bus targetBus) {
-        return findPath(startingBus, targetBus, new HashSet<>());
-    }
-
-    private List<Line> findPath(Bus currentBus, Bus targetBus, Set<Bus> visited) {
-        visited.add(currentBus);
-        if (currentBus.equals(targetBus)) return new ArrayList<>();
-
-        for (Line line : currentBus.getOutLines()) {
-            Bus nextBus = line.getToBus();
-            if (!visited.contains(nextBus)) {
-                List<Line> subPath = findPath(nextBus, targetBus, visited);
-                if (subPath != null) {
-                    subPath.add(0, line);
-                    return subPath;
-                }
-            }
-        }
-        return null;
     }
 }

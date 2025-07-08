@@ -1,11 +1,13 @@
 package polimi.logic;
 
+import com.uppaal.model.core2.Document;
 import lombok.Getter;
 import lombok.Setter;
-import polimi.logic.engine.UppaalEngineException;
-import polimi.logic.engine.UppaalEnginePool;
+import polimi.logic.engineManagement.UppaalEngineException;
+import polimi.logic.engineManagement.UppaalEnginePool;
 import polimi.model.Network;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.*;
 
 @Getter
@@ -16,6 +18,11 @@ public class Context {
 
     @Setter
     private Network network;
+    @Setter
+    private Document networkDocument;
+    @Setter
+    private List<Document> splitNetworkDocuments;
+
     private ExecutorService executor;
     private final String uppaalHome;
     private static boolean shutdownHookAdded = false;

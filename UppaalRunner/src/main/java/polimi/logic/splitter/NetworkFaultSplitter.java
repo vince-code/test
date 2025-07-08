@@ -1,7 +1,7 @@
 package polimi.logic.splitter;
 
 import com.uppaal.model.core2.Document;
-import polimi.logic.generator.UppaalModelGenerator;
+import polimi.logic.modelGenerator.UppaalModelGenerator;
 import polimi.model.Bus;
 import polimi.model.Line;
 import polimi.model.Network;

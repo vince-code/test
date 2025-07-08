@@ -24,8 +24,11 @@ public class SelectivityChecker {
 
     public static List<Integer> extractMisconfiguredCBs(Network network, int maxFaults) throws ExecutionException, InterruptedException {
 
-        NetworkFaultSplitter splitter = new NetworkFaultSplitter(network);
-        List<Document> splitModels = splitter.generateSplitDocuments(maxFaults, true);
+        List<Document> splitModels = Context.getInstance().getSplitNetworkDocuments();
+        if (splitModels == null) {
+            NetworkFaultSplitter splitter = new NetworkFaultSplitter(network);
+            splitModels = splitter.generateSplitDocuments(maxFaults, true);
+        }
 
         ExecutorService executor = Context.getInstance().getExecutor();
         List<Future<List<Integer>>> futures = new ArrayList<>();

@@ -10,16 +10,23 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = {"line", "bus"})
-@ToString(exclude = {"line", "bus"})
+@EqualsAndHashCode(exclude = {"line", "bus", "ekipLinkActors"})
+@ToString(exclude = {"line", "bus", "ekipLinkActors"})
 public class CircuitBreaker {
     private int id;
     private Line line;
     private Bus bus;
-    private int selType;
+    private SelectivityType selType;
     private int m;
-    private int i1, t1, i2, t2;
-    private boolean i2Flag;
+    private int i1, t1;
+    private Integer i2, t2;
+    private Boolean i2Flag;
     private Integer i3;
-    private boolean i3Flag;
+    private Boolean i3Flag;
+    private Integer i7;
+    private Integer t7FW;
+    private Integer t7BW;
+    private Boolean tselFW;
+    private Boolean tselBW;
+    private List<Actor> ekipLinkActors;
 }

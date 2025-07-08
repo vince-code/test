@@ -5,7 +5,7 @@ import lombok.Getter;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import polimi.logic.Context;
-import polimi.logic.NetworkBuilder;
+import polimi.logic.networkParsing.NetworkBuilder;
 import polimi.logic.SelectivityChecker;
 import polimi.model.Network;
 import java.io.File;

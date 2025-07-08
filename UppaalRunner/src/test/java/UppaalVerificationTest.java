@@ -1,11 +1,11 @@
 
 import com.uppaal.model.core2.Document;
 import org.junit.Test;
-import polimi.logic.generator.UppaalModelGenerator;
+import polimi.logic.modelGenerator.UppaalModelGenerator;
 import polimi.logic.splitter.NetworkFaultSplitter;
 import polimi.logic.verifier.UppaalClient;
 import polimi.model.VerificationResult;
-import polimi.logic.NetworkBuilder;
+import polimi.logic.networkParsing.NetworkBuilder;
 import polimi.model.Network;
 import java.io.File;
 import java.util.List;
